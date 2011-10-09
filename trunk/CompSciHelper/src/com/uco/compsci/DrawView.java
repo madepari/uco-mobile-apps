@@ -21,7 +21,7 @@ public class DrawView extends View implements OnTouchListener {
 	List<Shape> Shapes = new LinkedList<Shape>();
 	Paint paint = new Paint();
 	Shape s;
-	String type;
+	Types type;
 	Thread sortHandle = null;
 
 	public void start() {
@@ -34,8 +34,8 @@ public class DrawView extends View implements OnTouchListener {
 		sortHandle.start();
 	}
 
-	public void setType(String t) {
-		type = t;
+	public void setType(Types.type t) {
+		type.whatType = t;
 	}
 
 	public void clearItems() {
@@ -54,26 +54,28 @@ public class DrawView extends View implements OnTouchListener {
 		this.invalidate();
 	}
 
-	public DrawView(Context context, String stype) {
+	public DrawView(Context context, Types stype) {
 		super(context);
 		type = stype;
 		setFocusable(true);
 		setFocusableInTouchMode(true);
 		this.setOnTouchListener(this);
 		paint.setAntiAlias(true);
-		if (type.contains("Sort")) {
-			s = new Square(50, 70, Math.abs(rnd.nextInt() % 50));
+
+		s = new Square(50, 70, Math.abs(rnd.nextInt() % 50));
+		Shapes.add(s);
+		for (int x = 0; x < 4; x++) {
+			s = new Square(s, Math.abs(rnd.nextInt() % 50));
 			Shapes.add(s);
-			for (int x = 0; x < 4; x++) {
-				s = new Square(s, Math.abs(rnd.nextInt() % 50));
-				Shapes.add(s);
-			}
-			if (type == "BubbleSort") {
+			switch (type.whatType) {
+			case BubbleSort:
 				sortType = new Bubble(Shapes.size(), this);
 				sortType.setList(Shapes);
-			} else if (type == "QuakerSort") {
+				break;
+			case QuakerSort:
 				sortType = new Quaker(Shapes.size(), this);
 				sortType.setList(Shapes);
+				break;
 			}
 		}
 		start();
@@ -118,9 +120,11 @@ public class DrawView extends View implements OnTouchListener {
 	public boolean getWait() {
 		return sortType.getWait();
 	}
-	public boolean getFinished(){
+
+	public boolean getFinished() {
 		return sortType.getFinished();
 	}
+
 	public void stopThread() {
 		sortType.destroyThread();
 	}
