@@ -88,7 +88,7 @@ public class Quaker extends Sort {
 	@Override
 	public void incSort() {
 		Shape s1, s2;
-
+		super.inView(spotInSort);
 		if (spotInSort == -1) {
 			spotInSort++;
 			Shapes.get(spotInSort).setColor(Color.BLUE);
@@ -141,36 +141,5 @@ public class Quaker extends Sort {
 			}
 
 		}
-
-		/*
-		 * if (spotInSort == -1) { spotInSort++;
-		 * Shapes.get(spotInSort).setColor(Color.BLUE); Shapes.get(spotInSort +
-		 * 1).setColor(Color.BLUE); this.resetRunFinished(); this.isFinished();
-		 * } else if (!this.finished && !this.testSpot(spotInSort)) { s1 =
-		 * Shapes.get(spotInSort); s2 = Shapes.get(spotInSort + way); if
-		 * (s1.getNumb() > s2.getNumb()) { swapShapes(spotInSort + way,
-		 * spotInSort); Thread.yield(); this.incRunFinished(); }
-		 * Shapes.get(spotInSort).setColor(Color.WHITE); Shapes.get(spotInSort +
-		 * way).setColor(Color.WHITE);
-		 * 
-		 * //test if we are checking last 2 items if (spotInSort ==
-		 * Shapes.size() - 2 || this .testSpot(spotInSort + way) == true) {
-		 * this.setSpot(spotInSort, way); this.setSpot(spotInSort+way, 1);
-		 * Shapes.get(spotInSort + way).setColor(Color.GREEN);
-		 * 
-		 * if(spotInSort == 0){ this.setSpot(spotInSort, 1);
-		 * Shapes.get(spotInSort).setColor(Color.GREEN); this.isFinished(); }
-		 * 
-		 * else if (this.getRunFinished() == 0) { for (Shape s : Shapes) {
-		 * s.setColor(Color.GREEN); } super.finished = true; } way = -way;
-		 * spotInSort += way; } else {
-		 * 
-		 * spotInSort = Math.abs(spotInSort + 1) * way;
-		 * Shapes.get(spotInSort).setColor(Color.BLUE); Shapes.get(spotInSort +
-		 * way).setColor(Color.BLUE); }
-		 * 
-		 * } if(super.finished){ //fin super.Destroy(); }
-		 */
-
 	}
 }

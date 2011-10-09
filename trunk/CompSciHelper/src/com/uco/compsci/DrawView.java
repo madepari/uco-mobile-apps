@@ -9,6 +9,7 @@ import Sorts.*;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -23,6 +24,8 @@ public class DrawView extends View implements OnTouchListener {
 	Shape s;
 	Types type;
 	Thread sortHandle = null;
+	private int width;
+	//private int height;
 
 	public void start() {
 		sortHandle = new Thread(new Runnable() {
@@ -54,7 +57,7 @@ public class DrawView extends View implements OnTouchListener {
 		this.invalidate();
 	}
 
-	public DrawView(Context context, Types stype) {
+	public DrawView(Context context, Types stype, int size) {
 		super(context);
 		type = stype;
 		setFocusable(true);
@@ -64,7 +67,7 @@ public class DrawView extends View implements OnTouchListener {
 
 		s = new Square(50, 70, Math.abs(rnd.nextInt() % 50));
 		Shapes.add(s);
-		for (int x = 0; x < 4; x++) {
+		for (int x = 0; x < size - 1; x++) {
 			s = new Square(s, Math.abs(rnd.nextInt() % 50));
 			Shapes.add(s);
 			switch (type.whatType) {
@@ -129,4 +132,19 @@ public class DrawView extends View implements OnTouchListener {
 		sortType.destroyThread();
 	}
 
+	public void setDisplaySize(int height, int width) {
+		this.width = width;
+		//this.height = height;
+	}
+
+	public void inView(Shape s) {
+		if(s.getY() > 0 && s.getY() < width){}
+		else
+			while(s.getY() < 0){
+				moveItems(0, s.getY());
+			}
+			while(s.getY() > width){
+				moveItems(0, s.getY());
+			}
+	}
 }

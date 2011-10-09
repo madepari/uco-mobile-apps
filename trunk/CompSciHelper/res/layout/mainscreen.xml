@@ -7,7 +7,7 @@
 		android:id="@+id/textNodesQ"></TextView>
 	<EditText android:layout_width="match_parent"
 		android:layout_height="wrap_content" android:inputType="number"
-		android:id="@+id/enterNodeNumber">
+		android:id="@+id/enterNodeNumber" android:numeric="integer" android:text="4" >
 		<requestFocus></requestFocus>
 	</EditText>
 	<RadioGroup android:layout_height="wrap_content"
