@@ -1,44 +1,25 @@
 package com.uco.compsci;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RadioGroup;
-import android.widget.Toast;
 
 public class CompSciHelperActivity extends Activity {
-	private DrawView drawView = null;
-	private LinearLayout parentContainer;
-	Runnable sortThread;
-	private Intent dv;
+	private Intent i;
+	private Types t = new Types();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		// drawView = new DrawView(this, "QuakerSort");
-		// setContentView(drawView);
+		//drawView = new DrawView(this, "QuakerSort");
+		//setContentView(drawView);
 
 		setContentView(R.layout.mainscreen);
-
-		// drawView = (DrawView) findViewById(R.id.drawView1);
-		// setContentView(R.layout.buttons);
-		// this.addContentView(drawView, new LayoutParams(
-		// LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
-		// setContentView(R.layout.buttons);
-
-		// createParentContainer();
-		// setContentView(parentContainer);
 	}
 
 	public void onClick(View target) {
@@ -48,13 +29,19 @@ public class CompSciHelperActivity extends Activity {
 		case R.id.radioTrees:
 			break;
 		case R.id.bubble:
-			drawView = new DrawView(this, "BubbleSort");
-			setContentView(drawView);
+			t.setType("BubbleSort");
+			i = new Intent("com.uco.compsci.DrawViewActivity");
+			i.putExtra("type", t.whatType.ordinal());
+			startActivity(i);
 			break;
 		case R.id.quaker:
-			drawView = new DrawView(this, "QuakerSort");
-			setContentView(drawView);
-			break;
+			t.setType("QuakerSort");
+			i = new Intent("com.uco.compsci.DrawViewActivity");
+			i.putExtra("type", t.whatType.ordinal());
+			startActivity(i);
+			//drawView = new DrawView(this, "QuakerSort");
+			//setContentView(drawView);
+			//break;
 
 		}
 	}
@@ -67,7 +54,7 @@ public class CompSciHelperActivity extends Activity {
 		return true;
 	}
 
-	@Override
+	/*@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.bubble:
@@ -85,56 +72,6 @@ public class CompSciHelperActivity extends Activity {
 
 		}
 		return true;
-	}
+	}*/
 
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (drawView.getWait() || drawView.getFinished()) {
-
-			if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN
-					&& !drawView.getFinished())
-				drawView.changeWait();
-			// drawView.removeItem();
-			else if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-				drawView.stopThread();
-				drawView = new DrawView(this, "QuakerSort");
-				setContentView(drawView);
-			} else if(keyCode == KeyEvent.KEYCODE_BACK){
-				if(dv == null)
-					super.onKeyDown(keyCode, event);
-				else
-					stopService(dv);
-			}
-			else
-				super.onKeyDown(keyCode, event);
-		}
-		return true;
-
-	}
-
-	private void createParentContainer() {
-		LinearLayout drawContainer = new LinearLayout(this);
-		LinearLayout buttonContainer = new LinearLayout(this);
-		drawContainer.setLayoutParams(new LayoutParams(
-				LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-		drawContainer.setOrientation(LinearLayout.VERTICAL);
-		// drawView = new DrawView(this);
-		drawContainer.addView(drawView);
-
-		buttonContainer.setLayoutParams(new LayoutParams(
-				LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-		buttonContainer.setOrientation(LinearLayout.HORIZONTAL);
-		Button add = new Button(this);
-		add.setText("Add");
-		buttonContainer.addView(add);
-
-		parentContainer = new LinearLayout(this);
-
-		parentContainer.setLayoutParams(new LayoutParams(
-				LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-		parentContainer.setOrientation(LinearLayout.VERTICAL);
-
-		parentContainer.addView(drawView);
-		parentContainer.addView(buttonContainer);
-	}
 }
