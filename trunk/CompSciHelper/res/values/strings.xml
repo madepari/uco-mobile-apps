@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, CompSciHelperActivity!</string>
+    <string name="app_name">CompSciHelper</string>
+    <string name="numberofnodes">Enter Number of Nodes</string>
+    <string name="textSorts">Sorts</string>
+    <string name="textTrees">Trees</string>
+</resources>
