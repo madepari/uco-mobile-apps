@@ -20,12 +20,14 @@ public class DrawView extends View implements OnTouchListener {
 	private float ySpot = 0.0f;
 	static final float MAX_SPEED = 10.0f;
 	List<Shape> Shapes = new LinkedList<Shape>();
+	//List<Shape> index = new LinkedList<Shape>();
 	Paint paint = new Paint();
 	Shape s;
 	Types type;
 	Thread sortHandle = null;
 	private int width;
-	//private int height;
+
+	// private int height;
 
 	public void start() {
 		sortHandle = new Thread(new Runnable() {
@@ -134,17 +136,17 @@ public class DrawView extends View implements OnTouchListener {
 
 	public void setDisplaySize(int height, int width) {
 		this.width = width;
-		//this.height = height;
+		// this.height = height;
 	}
 
 	public void inView(Shape s) {
 		if(s.getY() > 0 && s.getY() < width){}
 		else
-			while(s.getY() < 0){
-				moveItems(0, s.getY());
+			while(s.getY() < 10){
+				moveItems(s.getY(), 0);
 			}
 			while(s.getY() > width){
-				moveItems(0, s.getY());
+				moveItems(s.getY(), 0);
 			}
 	}
 }
