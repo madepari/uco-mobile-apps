@@ -86,6 +86,7 @@ public class Bubble extends Sort {
 	@Override
 	public void incSort() {
 		Shape s1, s2;
+		super.inView(spotInSort);
 		if (spotInSort == -1) {
 			spotInSort++;
 			Shapes.get(spotInSort).setColor(Color.BLUE);
@@ -134,4 +135,5 @@ public class Bubble extends Sort {
 		}
 
 	}
+
 }

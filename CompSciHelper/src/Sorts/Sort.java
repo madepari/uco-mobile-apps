@@ -14,6 +14,11 @@ public abstract class Sort {
 	protected boolean wait = true;
 	protected boolean running = true;
 
+	protected void inView(int spot) {
+		if (spot > -1)
+			dview.inView(Shapes.get(spot));
+	}
+
 	public void changeWait() {
 		wait = !wait;
 	}
