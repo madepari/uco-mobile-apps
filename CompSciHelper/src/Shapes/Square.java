@@ -11,33 +11,33 @@ public class Square extends Shape {
 	@Override
 	public void Draw(Canvas canvas, Paint paint) {
 		paint.setColor(super.getColor());
-		canvas.drawRect(x, getY(), x + xINC, getY() + yINC, paint);
+		canvas.drawRect(getX(), getY(), getX() + xINC, getY() + yINC, paint);
 		paint.setColor(Color.RED);
 		paint.setTextSize(35);
 		canvas.drawText(getNumb() + " ", getCenterX(), getCenterY(), paint);
 	}
 
 	public Square(int xloc, int yloc, int n) {
-		x = xloc;
+		setX(xloc);
 		setY(yloc);
 		setNumb(n);
 	}
 	public Square(int xloc, int yloc, int n, int color) {
-		x = xloc;
+		setX(xloc);
 		setY(yloc);
 		setNumb(n);
 		super.setColor(color);
 	}
 
 	public Square(Shape s) {
-		x = s.x;
+		setX(s.getX());
 		setY(s.getY());
 		setNumb(s.getNumb());
 		super.setColor(s.getColor());
 	}
 
 	public Square(Shape prev, int n) {
-		x = prev.x;
+		setX(prev.getX());
 		setY(prev.getY() + yINC + 3);
 		setNumb(n);
 	}
@@ -47,6 +47,6 @@ public class Square extends Shape {
 	}
 
 	public float getCenterX() {
-		return x;
+		return getX();
 	}
 }

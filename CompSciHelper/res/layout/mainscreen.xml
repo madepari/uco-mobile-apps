@@ -7,7 +7,8 @@
 		android:id="@+id/textNodesQ"></TextView>
 	<EditText android:layout_width="match_parent"
 		android:layout_height="wrap_content" android:inputType="number"
-		android:id="@+id/enterNodeNumber" android:numeric="integer" android:text="4" >
+		android:id="@+id/enterNodeNumber" android:numeric="integer"
+		android:text="4">
 		<requestFocus></requestFocus>
 	</EditText>
 	<RadioGroup android:layout_height="wrap_content"
@@ -33,6 +34,11 @@
 			android:text="Quaker Sort" android:id="@+id/quaker"
 			android:layout_gravity="center" android:onClick="onClick"
 			android:gravity="center|center_horizontal" android:layout_weight="1"></Button>
+		<Button android:layout_gravity="center" android:layout_width="174dp"
+			android:layout_weight="1" android:layout_height="0dp"
+			android:onClick="onClick" android:gravity="center|center_horizontal"
+			android:id="@+id/binarytree" android:text="@string/binarytree"
+			android:visibility="invisible"></Button>
 	</LinearLayout>
 
 </LinearLayout>

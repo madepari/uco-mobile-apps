@@ -5,4 +5,5 @@
     <string name="numberofnodes">Enter Number of Nodes</string>
     <string name="textSorts">Sorts</string>
     <string name="textTrees">Trees</string>
+    <string name="binarytree">Binary Tree</string>
 </resources>

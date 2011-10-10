@@ -1,10 +1,10 @@
 package Sorts;
 
+import DrawViews.DrawView;
 import Shapes.Shape;
 import Shapes.Square;
 import android.graphics.Color;
 
-import com.uco.compsci.DrawView;
 
 public class Quaker extends Sort {
 
