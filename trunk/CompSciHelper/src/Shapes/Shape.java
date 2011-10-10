@@ -1,4 +1,4 @@
-package com.uco.compsci;
+package Shapes;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -10,7 +10,7 @@ public abstract class Shape{
 	private float y;
 	private int numb;
 	Shape prev;
-	abstract void Draw(Canvas canvas, Paint paint);
+	public abstract void Draw(Canvas canvas, Paint paint);
 	public float getY() {
 		return y;
 	}

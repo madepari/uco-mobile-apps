@@ -1,10 +1,10 @@
 package Sorts;
 
+import Shapes.Shape;
+import Shapes.Square;
 import android.graphics.Color;
 
 import com.uco.compsci.DrawView;
-import com.uco.compsci.Shape;
-import com.uco.compsci.Square;
 
 public class Bubble extends Sort {
 	

@@ -2,8 +2,9 @@ package Sorts;
 
 import java.util.List;
 
+import Shapes.Shape;
+
 import com.uco.compsci.DrawView;
-import com.uco.compsci.Shape;
 
 public abstract class Sort {
 	protected int[] holder;

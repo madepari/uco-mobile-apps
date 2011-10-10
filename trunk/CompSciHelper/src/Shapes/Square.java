@@ -1,4 +1,4 @@
-package com.uco.compsci;
+package Shapes;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -9,7 +9,7 @@ public class Square extends Shape {
 	private static final float yINC = 70;
 
 	@Override
-	void Draw(Canvas canvas, Paint paint) {
+	public void Draw(Canvas canvas, Paint paint) {
 		paint.setColor(super.getColor());
 		canvas.drawRect(x, getY(), x + xINC, getY() + yINC, paint);
 		paint.setColor(Color.RED);
