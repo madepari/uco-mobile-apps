@@ -15,9 +15,16 @@ public class DrawViewActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		display = getWindowManager().getDefaultDisplay();
+		
+		
+		
+		//gets data put in by me on other
 		spot = getIntent().getExtras().getInt("type");
 		t.setType(spot);
 		spot = getIntent().getExtras().getInt("size");
+		
+		
+		
 		drawView = new DrawView(this, t, spot);
 		setContentView(drawView);
 		drawView.setDisplaySize(display.getHeight(), display.getWidth());
