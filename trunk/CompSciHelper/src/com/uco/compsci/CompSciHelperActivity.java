@@ -18,6 +18,8 @@ public class CompSciHelperActivity extends Activity {
 		setContentView(R.layout.mainscreen);
 	}
 
+	
+	//intent is created here
 	public void onClick(View target) {
 		TextView numbNodes = (TextView) findViewById(R.id.enterNodeNumber);
 		int size = 4;
