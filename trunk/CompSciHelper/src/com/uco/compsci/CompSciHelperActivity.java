@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class CompSciHelperActivity extends Activity {
@@ -19,18 +20,19 @@ public class CompSciHelperActivity extends Activity {
 		setContentView(R.layout.mainscreen);
 	}
 
-	
-	//intent is created here
+	// intent is created here
 	public void onClick(View target) {
 		TextView numbNodes = (TextView) findViewById(R.id.enterNodeNumber);
 		int size = 4;
-		if(Integer.parseInt(numbNodes.getText().toString()) > 4){
+		if (Integer.parseInt(numbNodes.getText().toString()) > 4) {
 			size = Integer.parseInt(numbNodes.getText().toString());
 		}
 		switch (target.getId()) {
 		case R.id.radioSort:
+			ChangeButtons("sorts");
 			break;
 		case R.id.radioTrees:
+			ChangeButtons("trees");
 			break;
 		case R.id.bubble:
 			t.setType("BubbleSort");
@@ -45,6 +47,26 @@ public class CompSciHelperActivity extends Activity {
 			i.putExtra("type", t.whatType.ordinal());
 			i.putExtra("size", size);
 			startActivity(i);
+			break;
+		case R.id.binarytree:
+			i = new Intent("com.uco.compsci.TreeDrawViewActivity");
+			startActivity(i);
+			break;
+		}
+	}
+
+	private void ChangeButtons(String type) {
+		Button binary = (Button) findViewById(R.id.binarytree);
+		Button bubble = (Button) findViewById(R.id.bubble);
+		Button quaker = (Button) findViewById(R.id.quaker);
+		if (type == "sorts") {
+			binary.setVisibility(Button.INVISIBLE);
+			bubble.setVisibility(Button.VISIBLE);
+			quaker.setVisibility(Button.VISIBLE);
+		} else if (type == "trees") {
+			binary.setVisibility(Button.VISIBLE);
+			bubble.setVisibility(Button.INVISIBLE);
+			quaker.setVisibility(Button.INVISIBLE);
 		}
 	}
 

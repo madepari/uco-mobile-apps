@@ -1,4 +1,4 @@
-package com.uco.compsci;
+package DrawViews;
 
 import java.util.LinkedList;
 import java.util.List;
