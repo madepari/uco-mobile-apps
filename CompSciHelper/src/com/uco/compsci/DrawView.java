@@ -4,6 +4,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import Shapes.Shape;
+import Shapes.Square;
+import Shapes.Types;
 import Sorts.*;
 
 import android.content.Context;

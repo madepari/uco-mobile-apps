@@ -1,4 +1,4 @@
-package com.uco.compsci;
+package Shapes;
 
 public class Types {
 	public enum type {

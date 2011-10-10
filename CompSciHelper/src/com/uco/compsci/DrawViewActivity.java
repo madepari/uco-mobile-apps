@@ -1,5 +1,6 @@
 package com.uco.compsci;
 
+import Shapes.Types;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Display;
