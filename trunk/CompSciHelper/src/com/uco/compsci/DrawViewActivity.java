@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 public class DrawViewActivity extends Activity {
 	private Types t = new Types();
@@ -51,5 +53,13 @@ public class DrawViewActivity extends Activity {
 		} finally {
 			return true;
 		}
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater(); // from activity
+		inflater.inflate(R.menu.selection, menu);
+		// It is important to return true to see the menu
+		return true;
 	}
 }
