@@ -3,7 +3,7 @@ package Shapes;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-class Line extends Shape{
+public class Line extends Shape{
 	private float endX;
 	private float endY;
 	

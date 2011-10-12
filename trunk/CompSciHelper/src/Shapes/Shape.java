@@ -56,5 +56,4 @@ public abstract class Shape{
 	public void setRight(Shape right) {
 		this.right = right;
 	}
-	public void addChild(Circle c){}
 }
