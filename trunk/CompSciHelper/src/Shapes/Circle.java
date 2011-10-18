@@ -30,6 +30,7 @@ public class Circle extends Shape {
 
 	@Override
 	public void Draw(Canvas canvas, Paint paint) {
+		paint.setColor(super.getColor());
 		canvas.drawCircle(getX(), getY(), (float) getRadius(), paint);
 		paint.setTextSize(35);
 		paint.setColor(Color.RED);

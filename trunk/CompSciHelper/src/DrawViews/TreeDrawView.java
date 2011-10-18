@@ -33,36 +33,33 @@ public class TreeDrawView extends View implements OnTouchListener {
 		type.whatType = t;
 	}
 
-
 	public void addItem() {
-		Node node = new Node(new Circle(0, 0, 40, 5));
+		
+		Node node = new Node(new Circle(0, 0, 40, Math.abs(rnd.nextInt() % 50)));
 		bt.addChild(bt.getRoot(), node);
 		this.invalidate();
 	}
 
 	public void removeItem() {
-		//Shapes.remove(Shapes.size() - 1);
+		// Shapes.remove(Shapes.size() - 1);
 		this.invalidate();
 	}
 
-	//public TreeDrawView(Context context, Types stype, int size) {
-	public TreeDrawView(Context context){
+	// public TreeDrawView(Context context, Types stype, int size) {
+	public TreeDrawView(Context context) {
 		super(context);
-		//type = stype;
+		// type = stype;
 		setFocusable(true);
 		setFocusableInTouchMode(true);
 		this.setOnTouchListener(this);
 		paint.setAntiAlias(true);
 
-		bt = new BinaryTree(new Node(new Circle(50)));
-		/*for (int x = 0; x < size - 1; x++) {
-			s = new Square(s, Math.abs(rnd.nextInt() % 50));
-			Shapes.add(s);
-			switch (type.whatType) {
-			case BubbleSort:
-				break;
-			}
-		}*/
+		bt = new BinaryTree(new Node(new Circle(Math.abs(rnd.nextInt() % 50))));
+		/*
+		 * for (int x = 0; x < size - 1; x++) { s = new Square(s,
+		 * Math.abs(rnd.nextInt() % 50)); Shapes.add(s); switch (type.whatType)
+		 * { case BubbleSort: break; } }
+		 */
 	}
 
 	@Override
@@ -70,27 +67,22 @@ public class TreeDrawView extends View implements OnTouchListener {
 		bt.TraverseDraw(bt.getRoot(), canvas, paint);
 	}
 
-	private void moveItems(float curr_spotX, float new_spotX, float curr_spotY, float new_spotY) {
-		float DeltaX, DeltaY = 0;
-		if(curr_spotX<new_spotX)
-			DeltaX = curr_spotX + new_spotX;
-		else
-			DeltaX = curr_spotX - new_spotX;
-		if(curr_spotY<new_spotY)
-			DeltaX = curr_spotY + new_spotY;
-		else
-			DeltaX = curr_spotY - new_spotY;
-			bt.TraverseMove(bt.getRoot(), DeltaX, DeltaY);
+	private void moveItems(float curr_spotX, float new_spotX, float curr_spotY,
+			float new_spotY) {
+		float DeltaX = 0, DeltaY = 0;
+		DeltaX = new_spotX - curr_spotX;
+		DeltaY = new_spotY - curr_spotY;
+
+		bt.TraverseMove(bt.getRoot(), DeltaX, DeltaY);
 
 	}
 
 	public boolean onTouch(View view, MotionEvent event) {
-		if (event.getAction() == MotionEvent.ACTION_DOWN){
+		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 			xSpot = event.getX();
 			ySpot = event.getY();
-		}
-		else if (event.getAction() == MotionEvent.ACTION_MOVE) {
-			moveItems(ySpot, event.getY(), xSpot, event.getX());
+		} else if (event.getAction() == MotionEvent.ACTION_MOVE) {
+			moveItems(xSpot, event.getX(), ySpot, event.getY());
 			ySpot = event.getY();
 			xSpot = event.getX();
 		}
@@ -98,22 +90,14 @@ public class TreeDrawView extends View implements OnTouchListener {
 		return true;
 	}
 
-
 	public void setDisplaySize(int height, int width) {
 		this.width = width;
 		this.height = height;
 	}
 
-	/*public void inView(Shape s) {
-		if(s.getY() > 0 && s.getY() < height - 150){}
-		else
-			while(s.getY() < 20){
-				moveItems(s.getY(), 20);
-			}
-			if(s.getY() > height - 150){
-				while(s.getY() > 30){
-					moveItems(s.getY(), 30);
-				}
-			}
-	}*/
+	/*
+	 * public void inView(Shape s) { if(s.getY() > 0 && s.getY() < height -
+	 * 150){} else while(s.getY() < 20){ moveItems(s.getY(), 20); } if(s.getY()
+	 * > height - 150){ while(s.getY() > 30){ moveItems(s.getY(), 30); } } }
+	 */
 }
