@@ -87,4 +87,12 @@ public class Node {
 		if (rightLine != null)
 			rightLine.Draw(c, p);
 	}
+
+	public float getBottom() {
+		return node.getBottom();
+	}
+
+	public float getTop() {
+		return node.getTop();
+	}
 }
