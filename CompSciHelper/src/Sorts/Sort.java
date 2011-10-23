@@ -5,6 +5,9 @@ import java.util.List;
 import DrawViews.DrawView;
 import Shapes.Shape;
 
+/*
+ * Abstract class since we have many sorts
+ */
 
 public abstract class Sort {
 	protected int[] holder;
@@ -56,6 +59,11 @@ public abstract class Sort {
 		RunFinished = 0;
 	}
 
+	/*
+	 * This is needed since only one thread can redraw the drawview.
+	 * Since it only draws when the thread is completed we need a secondary thread.
+	 * First thread calls PostInvalidate then yields.  Allowing this thread to draw.
+	 */
 	public void run() {
 		while (running) {
 			if (wait == false) {
