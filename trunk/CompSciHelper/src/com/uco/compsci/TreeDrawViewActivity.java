@@ -10,8 +10,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 
 public class TreeDrawViewActivity extends Activity {
+	/*
 	private Types t = new Types();
 	private int spot;
+	*/
 	TreeDrawView drawView = null;
 	Display display;
 
@@ -19,28 +21,28 @@ public class TreeDrawViewActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		display = getWindowManager().getDefaultDisplay();
-
-		// gets data put in by me on other
-		// spot = getIntent().getExtras().getInt("type");
-		// t.setType(spot);
-		// spot = getIntent().getExtras().getInt("size");
-
+		/**************************
+		 * Not currently used but needed
+		 * for when multiple trees can be selected
+		 * 
+		 * spot = getIntent().getExtras().getInt("type");
+		 * t.setType(spot);
+		 * 
+		 **************************/		
+		
 		drawView = new TreeDrawView(this);
-		// drawView = new DrawView(this, t, spot);
 		setContentView(drawView);
 		drawView.setDisplaySize(display.getHeight(), display.getWidth());
-		// setContentView(R.layout.buttons);
 	}
 
 	@SuppressWarnings("finally")
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		try {
-
+			//traps the volume down button here will not pass it to system
+			//uses volume down for conitinuing sort
 			if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN)
 				drawView.addItem();
-			// drawView.removeItem();
-
 			else
 				super.onKeyDown(keyCode, event);
 

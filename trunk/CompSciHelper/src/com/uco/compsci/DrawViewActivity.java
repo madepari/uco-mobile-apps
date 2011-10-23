@@ -20,30 +20,32 @@ public class DrawViewActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		display = getWindowManager().getDefaultDisplay();
 				
-		//gets data put in by me on other
+		//gets data passed through by calling activity
 		spot = getIntent().getExtras().getInt("type");
 		t.setType(spot);
 		spot = getIntent().getExtras().getInt("size");
 		
 		
-		
+		//DrawView(Context, Bubble/Quaker/etc, size_of_sort) 
 		drawView = new DrawView(this, t, spot);
 		setContentView(drawView);
+
+		//passes the max_height and max_width to drawView for when displayed sort if off screen
+		// it will then put animation back on screen
 		drawView.setDisplaySize(display.getHeight(), display.getWidth());
-		//setContentView(R.layout.buttons);
 	}
 
 	@SuppressWarnings("finally")
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		try {
+			//if it is currently drawing we will wait
 			if (drawView.getWait() || drawView.getFinished()) {
-
+				//traps the volume down button here will not pass it to system
+				//uses volume down for conitinuing sort
 				if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN
 						&& !drawView.getFinished())
 					drawView.changeWait();
-				// drawView.removeItem();
-
 				else
 					super.onKeyDown(keyCode, event);
 			}
@@ -63,8 +65,12 @@ public class DrawViewActivity extends Activity {
 		return true;
 	}
 	
+	
+	//onDestory is called when activity is being destroyed by the system
+	//very important to override this because of our extra thread
 	@Override
 	protected void onDestroy() {
+		//stops the thread
 		drawView.stopThread();
 		super.onDestroy();
 	}

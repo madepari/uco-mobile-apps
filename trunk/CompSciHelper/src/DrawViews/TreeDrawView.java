@@ -1,18 +1,14 @@
 package DrawViews;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Random;
 
-import Shapes.*;
-import Sorts.*;
+import Shapes.Circle;
+import Shapes.Types;
 import Trees.BinaryTree;
 import Trees.Node;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -34,39 +30,36 @@ public class TreeDrawView extends View implements OnTouchListener {
 	}
 
 	public void addItem() {
-		
 		Node node = new Node(new Circle(0, 0, 40, Math.abs(rnd.nextInt() % 50)));
 		bt.addChild(bt.getRoot(), node);
 		this.invalidate();
 	}
 
+	/*
 	public void removeItem() {
 		// Shapes.remove(Shapes.size() - 1);
 		this.invalidate();
 	}
-
-	// public TreeDrawView(Context context, Types stype, int size) {
+	 */
+	
 	public TreeDrawView(Context context) {
 		super(context);
-		// type = stype;
 		setFocusable(true);
 		setFocusableInTouchMode(true);
 		this.setOnTouchListener(this);
 		paint.setAntiAlias(true);
-
+		
+		//creates the Root
 		bt = new BinaryTree(new Node(new Circle(Math.abs(rnd.nextInt() % 50))));
-		/*
-		 * for (int x = 0; x < size - 1; x++) { s = new Square(s,
-		 * Math.abs(rnd.nextInt() % 50)); Shapes.add(s); switch (type.whatType)
-		 * { case BubbleSort: break; } }
-		 */
 	}
 
+	//draws by traversing the list
 	@Override
 	public void onDraw(Canvas canvas) {
 		bt.TraverseDraw(bt.getRoot(), canvas, paint);
 	}
 
+	//if a move is necessary it moves them
 	private void moveItems(float curr_spotX, float new_spotX, float curr_spotY,
 			float new_spotY) {
 		float DeltaX = 0, DeltaY = 0;
@@ -77,6 +70,7 @@ public class TreeDrawView extends View implements OnTouchListener {
 
 	}
 
+	//handles movement of the tree in the X and Y axis
 	public boolean onTouch(View view, MotionEvent event) {
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 			xSpot = event.getX();
@@ -90,14 +84,9 @@ public class TreeDrawView extends View implements OnTouchListener {
 		return true;
 	}
 
+	//setter
 	public void setDisplaySize(int height, int width) {
 		this.width = width;
 		this.height = height;
 	}
-
-	/*
-	 * public void inView(Shape s) { if(s.getY() > 0 && s.getY() < height -
-	 * 150){} else while(s.getY() < 20){ moveItems(s.getY(), 20); } if(s.getY()
-	 * > height - 150){ while(s.getY() > 30){ moveItems(s.getY(), 30); } } }
-	 */
 }
