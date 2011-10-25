@@ -26,12 +26,13 @@
 	<LinearLayout android:layout_height="wrap_content"
 		android:id="@+id/linearLayout1" android:layout_width="match_parent"
 		android:orientation="vertical">
+		<Button android:layout_gravity="center" android:layout_width="174dp" android:onClick="onClick" android:gravity="center|center_horizontal" android:layout_weight="1" android:layout_height="0dp" android:text="@string/kmap" android:id="@+id/kmap"></Button>
 		<Button android:layout_width="174dp" android:layout_height="0dp"
 			android:text="Bubble Sort" android:id="@+id/bubble"
 			android:layout_gravity="center" android:onClick="onClick"
 			android:gravity="center|center_horizontal" android:layout_weight="1"></Button>
 		<Button android:layout_width="174dp" android:layout_height="0dp"
-			android:text="Quaker Sort" android:id="@+id/quaker"
+			android:text="Shaker Sort" android:id="@+id/shaker"
 			android:layout_gravity="center" android:onClick="onClick"
 			android:gravity="center|center_horizontal" android:layout_weight="1"></Button>
 		<Button android:layout_gravity="center" android:layout_width="174dp"

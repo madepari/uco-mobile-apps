@@ -6,4 +6,13 @@
     <string name="textSorts">Sorts</string>
     <string name="textTrees">Trees</string>
     <string name="binarytree">Binary Tree</string>
+    <string name="s1">S1</string>
+    <string name="s2">S2</string>
+    <string name="s0">S0</string>
+    <string name="s4">S4</string>
+    <string name="s3">S3</string>
+    <string name="s5">S5</string>
+    <string name="s6">S6</string>
+    <string name="s7">S7</string>
+    <string name="kmap">K-Map</string>
 </resources>

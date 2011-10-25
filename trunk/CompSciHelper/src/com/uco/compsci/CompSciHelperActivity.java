@@ -22,47 +22,53 @@ public class CompSciHelperActivity extends Activity {
 
 	public void onClick(View target) {
 		TextView numbNodes = (TextView) findViewById(R.id.enterNodeNumber);
-		
-		//minium size for sorts will be 4
+
+		// minium size for sorts will be 4
 		int size = 4;
 		if (Integer.parseInt(numbNodes.getText().toString()) > 4) {
 			size = Integer.parseInt(numbNodes.getText().toString());
 		}
 		switch (target.getId()) {
 		case R.id.radioSort:
-			//need to fix does not do what planned
-			//hides trees
+			// need to fix does not do what planned
+			// hides trees
 			ChangeButtons("sorts");
 			break;
 		case R.id.radioTrees:
-			//hides sorts
+			// hides sorts
 			ChangeButtons("trees");
 			break;
 		case R.id.bubble:
-			//set type to bubblesort
+			// set type to bubblesort
 			t.setType("BubbleSort");
-			//create new sortActivity
+			// create new sortActivity
 			i = new Intent("com.uco.compsci.DrawViewActivity");
-			//put in we want bubble and the size
+			// put in we want bubble and the size
 			i.putExtra("type", t.whatType.ordinal());
 			i.putExtra("size", size);
 			startActivity(i);
 			break;
-		case R.id.quaker:
+		case R.id.shaker:
 			t.setType("QuakerSort");
-			//create new sortActivity
+			// create new sortActivity
 			i = new Intent("com.uco.compsci.DrawViewActivity");
-			//put in we want Quaker and the size
+			// put in we want Quaker and the size
 			i.putExtra("type", t.whatType.ordinal());
 			i.putExtra("size", size);
 			startActivity(i);
 			break;
 		case R.id.binarytree:
-			//create new binary tree activity
+			// create new binary tree activity
 			i = new Intent("com.uco.compsci.TreeDrawViewActivity");
 			startActivity(i);
 			break;
+		case R.id.kmap:
+			// create new binary tree activity
+			i = new Intent("com.uco.compsci.KMapActivity");
+			startActivity(i);
+			break;
 		}
+
 	}
 
 	private void ChangeButtons(String type) {
