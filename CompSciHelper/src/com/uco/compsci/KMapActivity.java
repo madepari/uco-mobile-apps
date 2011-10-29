@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.CheckBox;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 public class KMapActivity extends Activity {
@@ -11,38 +15,87 @@ public class KMapActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.layoutkmap);
+		TableLayout table = (TableLayout) findViewById(R.id.kmaptable);
 		super.onCreate(savedInstanceState);
 	}
 
 	public void onClick(View Target) {
-		TextView tv = (TextView) findViewById(R.id.textView1);
+		CheckBox cb = (CheckBox) findViewById(Target.getId());
+		TextView tv;
 		switch (Target.getId()) {
 		case R.id.S0:
-			tv.setText("S0");
+			tv = (TextView) findViewById(R.id.m0);
+			if(cb.isChecked()){
+				tv.setText("1");
+			}
+			else{
+				tv.setText("0");
+			}
 			break;
 		case R.id.S1:
-			tv.setText("S1");
+			tv = (TextView) findViewById(R.id.m1);
+			if(cb.isChecked()){
+				tv.setText("1");
+			}
+			else{
+				tv.setText("0");
+			}
 			break;
 		case R.id.S2:
-			tv.setText("S2");
+			tv = (TextView) findViewById(R.id.m2);
+			if(cb.isChecked()){
+				tv.setText("1");
+			}
+			else{
+				tv.setText("0");
+			}
 			break;
 		case R.id.S3:
-			tv.setText("S3");
+			tv = (TextView) findViewById(R.id.m3);
+			if(cb.isChecked()){
+				tv.setText("1");
+			}
+			else{
+				tv.setText("0");
+			}
 			break;
 		case R.id.S4:
-			tv.setText("S4");
+			tv = (TextView) findViewById(R.id.m4);
+			if(cb.isChecked()){
+				tv.setText("1");
+			}
+			else{
+				tv.setText("0");
+			}
 			break;
 		case R.id.S5:
-			tv.setText("S5");
+			tv = (TextView) findViewById(R.id.m5);
+			if(cb.isChecked()){
+				tv.setText("1");
+			}
+			else{
+				tv.setText("0");
+			}
 			break;
 		case R.id.S6:
-			tv.setText("S6");
+			tv = (TextView) findViewById(R.id.m6);
+			if(cb.isChecked()){
+				tv.setText("1");
+			}
+			else{
+				tv.setText("0");
+			}
 			break;
 		case R.id.S7:
-			tv.setText("S7");
+			tv = (TextView) findViewById(R.id.m7);
+			if(cb.isChecked()){
+				tv.setText("1");
+			}
+			else{
+				tv.setText("0");
+			}
 			break;
 		}
-
 	}
 
 	@Override
