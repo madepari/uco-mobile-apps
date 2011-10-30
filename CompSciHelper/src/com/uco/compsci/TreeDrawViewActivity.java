@@ -56,7 +56,7 @@ public class TreeDrawViewActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater(); // from activity
-		inflater.inflate(R.menu.selection, menu);
+		//inflater.inflate(R.menu.selection, menu);
 		// It is important to return true to see the menu
 		return true;
 	}
