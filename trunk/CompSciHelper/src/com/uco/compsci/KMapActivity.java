@@ -15,7 +15,6 @@ public class KMapActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.layoutkmap);
-		TableLayout table = (TableLayout) findViewById(R.id.kmaptable);
 		super.onCreate(savedInstanceState);
 	}
 
