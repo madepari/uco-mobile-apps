@@ -74,7 +74,7 @@ public class CompSciHelperActivity extends Activity {
 	private void ChangeButtons(String type) {
 		Button binary = (Button) findViewById(R.id.binarytree);
 		Button bubble = (Button) findViewById(R.id.bubble);
-		Button quaker = (Button) findViewById(R.id.quaker);
+		Button quaker = (Button) findViewById(R.id.shaker);
 		if (type == "sorts") {
 			binary.setVisibility(Button.INVISIBLE);
 			bubble.setVisibility(Button.VISIBLE);
@@ -99,7 +99,7 @@ public class CompSciHelperActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater(); // from activity
-		inflater.inflate(R.menu.selection, menu);
+		//inflater.inflate(R.menu., menu);
 		// It is important to return true to see the menu
 		return true;
 	}
