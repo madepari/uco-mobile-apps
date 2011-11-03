@@ -4,10 +4,10 @@
 	android:weightSum="1" android:orientation="vertical">
 
 	<TableLayout android:id="@+id/kmaptable"
-		android:layout_height="216dp" android:layout_width="match_parent">
+		android:layout_gravity="center_horizontal" android:layout_weight="0.76" android:layout_width="match_parent" android:layout_height="match_parent">
 
 		<TableRow android:id="@+id/tableRow1" android:layout_width="match_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content" android:layout_gravity="center">
 						<TextView android:padding="5dp" android:layout_width="wrap_content"
 				android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium"
 				android:id="@+id/topleftdisplay" android:text=""></TextView>
@@ -74,65 +74,5 @@
 
 		</TableRow>
 	</TableLayout>
-	<ScrollView android:layout_marginLeft="0dp"
-		android:layout_marginTop="0dp" android:layout_width="match_parent"
-		android:onClick="onClick" android:id="@+id/scrollView1"
-		android:layout_height="match_parent">
-		<TableLayout android:layout_height="wrap_content"
-			android:layout_width="178dp" android:id="@+id/tableLayout1">
-			<TableRow android:id="@+id/TableRow03"
-				android:baselineAligned="false" android:layout_width="match_parent"
-				android:layout_height="wrap_content">
-				<CheckBox android:onClick="onClick" android:text="@string/s0"
-					android:layout_height="wrap_content" android:layout_width="wrap_content"
-					android:id="@+id/S0"></CheckBox>
-			</TableRow>
-			<TableRow android:id="@+id/TableRow02"
-				android:baselineAligned="false" android:layout_width="match_parent"
-				android:layout_height="wrap_content">
-				<CheckBox android:onClick="onClick" android:id="@+id/S1"
-					android:text="@string/s1" android:layout_height="wrap_content"
-					android:layout_width="wrap_content"></CheckBox>
-			</TableRow>
-			<TableRow android:id="@+id/TableRow01"
-				android:baselineAligned="false" android:layout_width="match_parent"
-				android:layout_height="wrap_content">
-				<CheckBox android:onClick="onClick" android:id="@+id/S2"
-					android:text="@string/s2" android:layout_height="wrap_content"
-					android:layout_width="wrap_content"></CheckBox>
-			</TableRow>
-			<TableRow android:id="@+id/tableRow1"
-				android:baselineAligned="false" android:layout_width="match_parent"
-				android:layout_height="wrap_content">
-				<CheckBox android:onClick="onClick" android:id="@+id/S3"
-					android:text="@string/s3" android:layout_height="wrap_content"
-					android:layout_width="wrap_content"></CheckBox>
-			</TableRow>
-			<TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content"
-				android:layout_height="wrap_content">
-				<CheckBox android:onClick="onClick" android:id="@+id/S4"
-					android:text="@string/s4" android:layout_height="wrap_content"
-					android:layout_width="wrap_content"></CheckBox>
-			</TableRow>
-			<TableRow android:id="@+id/tableRow3" android:layout_width="wrap_content"
-				android:layout_height="wrap_content">
-				<CheckBox android:onClick="onClick" android:id="@+id/S5"
-					android:text="@string/s5" android:layout_height="wrap_content"
-					android:layout_width="wrap_content"></CheckBox>
-			</TableRow>
-			<TableRow android:id="@+id/TableRow05" android:layout_width="wrap_content"
-				android:layout_height="wrap_content">
-				<CheckBox android:onClick="onClick" android:id="@+id/S6"
-					android:text="@string/s6" android:layout_height="wrap_content"
-					android:layout_width="wrap_content"></CheckBox>
-			</TableRow>
-			<TableRow android:id="@+id/TableRow06" android:layout_width="wrap_content"
-				android:layout_height="wrap_content">
-				<CheckBox android:onClick="onClick" android:id="@+id/S7"
-					android:text="@string/s7" android:layout_height="wrap_content"
-					android:layout_width="wrap_content"></CheckBox>
-			</TableRow>
-		</TableLayout>
-	</ScrollView>
 
 </LinearLayout>
