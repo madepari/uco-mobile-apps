@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <group android:orderInCategory="1" android:id="@+id/newmap" android:menuCategory="container">
+            <item android:title="New K-Map" android:titleCondensed="New" android:orderInCategory="1" android:menuCategory="container" android:id="@+id/newmap">
+                <menu>
+                    <item android:title="3 Variable" android:menuCategory="secondary" android:orderInCategory="1" android:id="@+id/var3"></item>
+                    <item android:title="4 Variable" android:menuCategory="secondary" android:orderInCategory="2" android:id="@+id/var4"></item>
+                    <item android:title="5 Variable" android:menuCategory="secondary" android:orderInCategory="3" android:id="@+id/var5"></item>
+                </menu>
+            </item>
+        </group>
+        <item android:title="View Equation" android:orderInCategory="1" android:id="@+id/vieweq" android:menuCategory="system"></item>
+    </menu>

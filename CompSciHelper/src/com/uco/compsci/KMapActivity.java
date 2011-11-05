@@ -2,10 +2,16 @@ package com.uco.compsci;
 
 import kmap.KMapController;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
@@ -18,12 +24,19 @@ import android.widget.TextView;
 public class KMapActivity extends Activity {
 	final int PADDING = 5;
 	TextView display;
-	KMapController KMapControl = new KMapController(KMapController.VARIABLE_5);
-	private int fiveVarCounter = -1;
+	KMapController KMapControl = new KMapController(KMapController.VARIABLE_3);
+	private int fiveVarCounter;
+	LinearLayout linearlayout;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		LinearLayout linearlayout = new LinearLayout(this);
+		createLinear();
+		super.onCreate(savedInstanceState);
+	}
+
+	public void createLinear() {
+		fiveVarCounter = -1;
+		linearlayout = new LinearLayout(this);
 		linearlayout.setOrientation(LinearLayout.VERTICAL);
 		linearlayout.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
 				LayoutParams.FILL_PARENT));
@@ -39,7 +52,6 @@ public class KMapActivity extends Activity {
 		linearlayout.addView(display);
 
 		setContentView(linearlayout);
-		super.onCreate(savedInstanceState);
 	}
 
 	public TableLayout createTable() {
@@ -53,7 +65,8 @@ public class KMapActivity extends Activity {
 			if (KMapControl.getKMapSize() == KMapController.VARIABLE_5) {
 				if (x == 0) {
 					fiveVarCounter += 1;
-					text.setText(fiveVarCounter + "");
+					text.setTextColor(Color.YELLOW);
+					text.setText(fiveVarCounter + "  ");
 				} else
 					text.setText(KMapControl.getTopDisplay()[x]);
 			} else {
@@ -75,7 +88,7 @@ public class KMapActivity extends Activity {
 				c = new CheckBox(this);
 				if (KMapControl.getKMapSize() == KMapController.VARIABLE_5
 						&& fiveVarCounter == 1)
-					c.setId(KMapControl.getTableLayout()[comboCounter]+16);
+					c.setId(KMapControl.getTableLayout()[comboCounter] + 16);
 				else
 					c.setId(KMapControl.getTableLayout()[comboCounter]);
 				c.setButtonDrawable(R.drawable.customcheck);
@@ -86,12 +99,18 @@ public class KMapActivity extends Activity {
 					@Override
 					public void onCheckedChanged(CompoundButton arg0,
 							boolean arg1) {
+						KMapControl.setVariableAtLocation(arg0.getId(), arg1);
 						String s = "Minterm: " + arg0.getId() + "\n"
 								+ "State: ";
 						if (arg1 == false)
 							s += "0";
 						else
 							s += "1";
+						s += "\nBinary: "
+								+ KMapControl.getBinarySpot(arg0.getId());
+						s += "\nVars: "
+								+ KMapControl.getStringVariableAtLocation(arg0
+										.getId());
 						display.setText(s);
 					}
 				});
@@ -101,16 +120,9 @@ public class KMapActivity extends Activity {
 			tl.addView(tr);
 
 		}
-
 		return tl;
-		/*
-		 * c.setLayoutParams(new
-		 * LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT));
-		 * tr.setLayoutParams(new
-		 * LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT));
-		 * tr.addView(c); tl.addView(tr);
-		 */
 	}
+
 	/*
 	 * public void onClick(View Target) { CheckBox cb = (CheckBox)
 	 * findViewById(Target.getId()); TextView tv; switch (Target.getId()) { case
@@ -130,9 +142,48 @@ public class KMapActivity extends Activity {
 	 * tv.setText("0"); } break; case R.id.S7: tv = (TextView)
 	 * findViewById(R.id.m7); if(cb.isChecked()){ tv.setText("1"); } else{
 	 * tv.setText("0"); } break; } }
-	 * 
-	 * @Override public boolean onCreateOptionsMenu(Menu menu) { return
-	 * super.onCreateOptionsMenu(menu); }
 	 */
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater(); // from activity
+		inflater.inflate(R.menu.kmenu, menu);
+		return true;
+	}
 
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.var3:
+			KMapControl = new KMapController(KMapController.VARIABLE_3);
+			createLinear();
+			break;
+		case R.id.var4:
+			KMapControl = new KMapController(KMapController.VARIABLE_4);
+			createLinear();
+			break;
+		case R.id.var5:
+			KMapControl = new KMapController(KMapController.VARIABLE_5);
+			createLinear();
+			break;
+		case R.id.vieweq:
+			final Dialog dialog = new Dialog(this);
+			dialog.setContentView(R.layout.vieweq);
+			dialog.setTitle("This is my custom dialog box");
+			dialog.setCancelable(true);
+
+			TextView text = (TextView) dialog.findViewById(R.id.TextView01);
+			text.setText(KMapControl.getEquation());
+
+			Button button = (Button) dialog.findViewById(R.id.Button01);
+			button.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					dialog.cancel();
+				}
+			});
+			dialog.show();
+			break;
+		}
+		return true;
+	}
 }
