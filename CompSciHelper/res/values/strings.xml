@@ -15,4 +15,6 @@
     <string name="s6">S6</string>
     <string name="s7">S7</string>
     <string name="kmap">K-Map</string>
+    <string name="next">Next Animation</string>
+    <string name="avl">AVL Tree</string>
 </resources>
