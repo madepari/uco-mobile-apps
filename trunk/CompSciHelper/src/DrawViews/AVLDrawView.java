@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.Display;
 import android.view.View;
+import android.widget.TextView;
 
 public class AVLDrawView extends View {
 	public final String SINGLE_ROTATION = "single";
@@ -17,8 +18,9 @@ public class AVLDrawView extends View {
 	private final int SINGLE_BREAK_POINTS[] = { 0, 24, 25, 26 };
 	public final String DOUBLE_ROTATION = "double";
 	private final int DOUBLE_ROTATION_FRAMES = 39;
-	private final int DOUBLE_BREAK_POINTS[] = { 0, 17, 25, 26, 35, 36, 37, 38};
-	
+	private final int DOUBLE_BREAK_POINTS[] = { 0, 17, 25, 26, 35, 36, 37, 38 };
+
+	TextView displayTextView;
 	Resources appR;
 	Thread animationHandle = null;
 	TreeAnimate animate = new TreeAnimate(this);
@@ -29,7 +31,15 @@ public class AVLDrawView extends View {
 			{ "Node 15 is out of balance",
 					"Node 15 is moved to be the left child of node 20",
 					"change the weight of node 15",
-					"change the weight of node 20" }, { "test2", "test2.1" } };
+					"change the weight of node 20" },
+			{
+					"This inbalance needs to be fixed with a double rotation.\n\nFirst we rotate around Node 25.",
+					"After first rotation.",
+					"Now we do a left rotation around Node 10",
+					"Node 15 is changed to be the right child of Node 10", "",
+					"Change weight of 10", "Change weight of 20",
+					"Change weight of 25" } };
+
 	private int frameSpot = 0;
 	private boolean paused = true;
 	private int stringColorCounter = 0;
@@ -41,6 +51,10 @@ public class AVLDrawView extends View {
 		paint.setAntiAlias(true);
 		appR = context.getResources();
 		setDisplayDim(d);
+	}
+
+	public void setTextView(TextView tv) {
+		displayTextView = tv;
 	}
 
 	public void setType(String s) {
@@ -73,11 +87,7 @@ public class AVLDrawView extends View {
 		Bitmap bd = BitmapFactory.decodeResource(getResources(), resID);
 		canvas.drawBitmap(bd, 0, 0, paint);
 
-		paint.setTextSize(50);
-		paint.setColor(Color.RED);
-
-		//canvas.drawText(displayText[0][stringColorCounter], 10, 500, paint);
-
+		displayTextView.setText(getDisplay()[stringColorCounter]);
 	}
 
 	private void setDisplayDim(Display display) {
@@ -96,7 +106,24 @@ public class AVLDrawView extends View {
 	public void buttonChangePause() {
 		changePause();
 		animate.changeAnimating();
-		stringColorCounter += 1;
+		incTextCounter();
+	}
+
+	public String[] getDisplay() {
+		if (type.equals(SINGLE_ROTATION))
+			return displayText[0];
+		else if (type.equals(DOUBLE_ROTATION))
+			return displayText[1];
+		return null;
+	}
+
+	public void incTextCounter() {
+		if (type.equals(SINGLE_ROTATION))
+			stringColorCounter = (stringColorCounter + 1)
+					% displayText[0].length;
+		else if (type.equals(DOUBLE_ROTATION))
+			stringColorCounter = (stringColorCounter + 1)
+					% displayText[1].length;
 	}
 
 	public void incFrame() {
