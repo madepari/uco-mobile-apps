@@ -67,6 +67,10 @@ public class CompSciHelperActivity extends Activity {
 			i = new Intent("com.uco.compsci.KMapActivity");
 			startActivity(i);
 			break;
+		case R.id.avl:
+			i = new Intent("com.uco.compsci.AVLAnimator");
+			startActivity(i);
+			break;
 		}
 
 	}
