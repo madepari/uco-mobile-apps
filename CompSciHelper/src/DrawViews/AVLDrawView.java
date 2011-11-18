@@ -16,17 +16,21 @@ public class AVLDrawView extends View {
 	public final String SINGLE_ROTATION = "single";
 	private final int SINGLE_ROTATION_FRAMES = 27;
 	private final int SINGLE_BREAK_POINTS[] = { 0, 24, 25, 26 };
+	
 	public final String DOUBLE_ROTATION = "double";
 	private final int DOUBLE_ROTATION_FRAMES = 39;
 	private final int DOUBLE_BREAK_POINTS[] = { 0, 17, 25, 26, 35, 36, 37, 38 };
 
-	TextView displayTextView;
-	Resources appR;
-	Thread animationHandle = null;
-	TreeAnimate animate = new TreeAnimate(this);
-	Paint paint = new Paint();
+	private TextView displayTextView;
+	private Resources appR;
+	private Thread animationHandle = null;
+	private TreeAnimate animate = new TreeAnimate(this);
+	private Paint paint = new Paint();
 	private String type = DOUBLE_ROTATION;
-	private int width, height;
+	private int frameSpot = 0;
+	private boolean paused = true;
+	private int stringColorCounter = 0;
+	
 	private String displayText[][] = {
 			{ "Node 15 is out of balance",
 					"Node 15 is moved to be the left child of node 20",
@@ -40,17 +44,12 @@ public class AVLDrawView extends View {
 					"Change weight of 10", "Change weight of 20",
 					"Change weight of 25" } };
 
-	private int frameSpot = 0;
-	private boolean paused = true;
-	private int stringColorCounter = 0;
-
 	public AVLDrawView(Context context, Display d) {
 		super(context);
 		setFocusable(true);
 		setFocusableInTouchMode(true);
 		paint.setAntiAlias(true);
 		appR = context.getResources();
-		setDisplayDim(d);
 	}
 
 	public void setTextView(TextView tv) {
@@ -58,10 +57,10 @@ public class AVLDrawView extends View {
 	}
 
 	public void setType(String s) {
-		if (!type.equals(SINGLE_ROTATION))
+		if (!type.equals(SINGLE_ROTATION) || !type.equals(DOUBLE_ROTATION))
 			type = SINGLE_ROTATION;
 		else
-			type = SINGLE_ROTATION;
+			type = s;
 	}
 
 	// creates the extra thread needed for animation
@@ -88,11 +87,6 @@ public class AVLDrawView extends View {
 		canvas.drawBitmap(bd, 0, 0, paint);
 
 		displayTextView.setText(getDisplay()[stringColorCounter]);
-	}
-
-	private void setDisplayDim(Display display) {
-		width = display.getWidth();
-		height = display.getHeight();
 	}
 
 	public boolean isPaused() {
