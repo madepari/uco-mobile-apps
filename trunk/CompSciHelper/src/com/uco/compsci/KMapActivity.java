@@ -152,7 +152,8 @@ public class KMapActivity extends Activity {
 			dialog.setCancelable(true);
 
 			TextView text = (TextView) dialog.findViewById(R.id.TextView01);
-			text.setText(KMapControl.getEquation());
+			text.setText(KMapControl.getEquation() + '\n');
+			text.setText(KMapControl.getReducedEquation());
 
 			Button button = (Button) dialog.findViewById(R.id.Button01);
 			button.setOnClickListener(new OnClickListener() {
