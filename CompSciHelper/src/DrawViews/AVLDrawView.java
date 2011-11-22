@@ -13,9 +13,16 @@ import android.view.View;
 import android.widget.TextView;
 
 public class AVLDrawView extends View {
+	public final String SIMPLE_SINGLE_ROTATION = "ssingle";
+	private final int SIMPLE_SINGLE_ROTATION_FRAMES = 27;
+	private final int SIMPLE_SINGLE_BREAK_POINTS[] = { 0, 24, 25, 26 };
+	
 	public final String SINGLE_ROTATION = "single";
-	private final int SINGLE_ROTATION_FRAMES = 27;
-	private final int SINGLE_BREAK_POINTS[] = { 0, 24, 25, 26 };
+	private final int SINGLE_ROTATION_FRAMES = 46;
+	private final int SINGLE_BREAK_POINTS[] = { 0, 22, 23, 41, 42, 43, 44, 45 };
+	
+	
+	
 	
 	public final String DOUBLE_ROTATION = "double";
 	private final int DOUBLE_ROTATION_FRAMES = 39;
@@ -26,23 +33,35 @@ public class AVLDrawView extends View {
 	private Thread animationHandle = null;
 	private TreeAnimate animate = new TreeAnimate(this);
 	private Paint paint = new Paint();
-	private String type = DOUBLE_ROTATION;
+	private String type = SINGLE_ROTATION;
 	private int frameSpot = 0;
 	private boolean paused = true;
 	private int stringColorCounter = 0;
 	
 	private String displayText[][] = {
-			{ "Node 15 is out of balance",
+			{ 		
+					"Node 15 is out of balance",
 					"Node 15 is moved to be the left child of node 20",
 					"change the weight of node 15",
-					"change the weight of node 20" },
+					"change the weight of node 20"},
 			{
 					"This inbalance needs to be fixed with a double rotation.\n\nFirst we rotate around Node 25.",
 					"After first rotation.",
 					"Now we do a left rotation around Node 10",
 					"Node 15 is changed to be the right child of Node 10", "",
 					"Change weight of 10", "Change weight of 20",
-					"Change weight of 25" } };
+					"Change weight of 25" }, 
+			{		
+					"The addition of node 30 creates a critical imbalance on node 10. 10's child on the right heavy side is also right heavy so a single left rotation is needed to restore balance.",
+					"To preserve order in the tree the left child of node 20 needs to be switched to the right child of node 10.",
+					"Node 15 is now the right child of node 10.",
+					"Now that the tree has been restructured we need to reset the weights of the nodes within the tree.",
+					"Node 10 is now even weighted on left and right.",
+					"Node 25 remains right heavy by one.",
+					"Node 20 is now evely weighted on the left and right.",
+					"The single left rotation is now complete and the tree's balance has been restored."}
+	
+	};
 
 	public AVLDrawView(Context context, Display d) {
 		super(context);
@@ -57,8 +76,8 @@ public class AVLDrawView extends View {
 	}
 
 	public void setType(String s) {
-		if (!type.equals(SINGLE_ROTATION) || !type.equals(DOUBLE_ROTATION))
-			type = SINGLE_ROTATION;
+		if (!type.equals(SIMPLE_SINGLE_ROTATION) || !type.equals(DOUBLE_ROTATION) || !type.equals(SINGLE_ROTATION))
+			type = SIMPLE_SINGLE_ROTATION;
 		else
 			type = s;
 	}
@@ -104,25 +123,39 @@ public class AVLDrawView extends View {
 	}
 
 	public String[] getDisplay() {
-		if (type.equals(SINGLE_ROTATION))
+		if (type.equals(SIMPLE_SINGLE_ROTATION))
 			return displayText[0];
 		else if (type.equals(DOUBLE_ROTATION))
 			return displayText[1];
+		else if (type.equals(SINGLE_ROTATION))
+			return displayText[2];
 		return null;
 	}
 
 	public void incTextCounter() {
-		if (type.equals(SINGLE_ROTATION))
-			stringColorCounter = (stringColorCounter + 1)
-					% displayText[0].length;
+		if (type.equals(SIMPLE_SINGLE_ROTATION))
+				stringColorCounter = (stringColorCounter + 1)
+				% displayText[0].length;
 		else if (type.equals(DOUBLE_ROTATION))
-			stringColorCounter = (stringColorCounter + 1)
-					% displayText[1].length;
+				stringColorCounter = (stringColorCounter + 1)
+				% displayText[1].length;
+		else if(type.equals(SINGLE_ROTATION))
+				stringColorCounter = (stringColorCounter + 1)
+				% displayText[2].length;
 	}
 
 	public void incFrame() {
 		if (!paused) {
 			frameSpot += 1;
+			if (type.equals(SIMPLE_SINGLE_ROTATION)) {
+				frameSpot %= SIMPLE_SINGLE_ROTATION_FRAMES;
+				for (int x : SIMPLE_SINGLE_BREAK_POINTS) {
+					if (x == frameSpot) {
+						animate.changeAnimating();
+						changePause();
+					}
+				}
+			}
 			if (type.equals(SINGLE_ROTATION)) {
 				frameSpot %= SINGLE_ROTATION_FRAMES;
 				for (int x : SINGLE_BREAK_POINTS) {
@@ -131,7 +164,7 @@ public class AVLDrawView extends View {
 						changePause();
 					}
 				}
-			}
+			}			
 			if (type.equals(DOUBLE_ROTATION)) {
 				frameSpot %= DOUBLE_ROTATION_FRAMES;
 				for (int x : DOUBLE_BREAK_POINTS) {
