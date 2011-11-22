@@ -25,10 +25,9 @@ public class TreeAnimate {
 					return;
 				}
 				redraw();
-				counter = (counter + 1) % 250;
+				counter = (counter + 1) % 300;
 				if(counter == 0){
 					dv.incFrame();
-					Thread.yield();
 				}
 		}
 	}
