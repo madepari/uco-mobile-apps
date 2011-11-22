@@ -104,7 +104,7 @@ public class AVLDrawView extends View {
 		Bitmap bd = BitmapFactory.decodeResource(getResources(), resID);
 		canvas.drawBitmap(bd, 0, 0, paint);
 
-		displayTextView.setText(getDisplay()[stringColorCounter] + "\nframeSpot: " + frameSpot);
+		displayTextView.setText(getDisplay()[stringColorCounter]);
 
 	}
 
