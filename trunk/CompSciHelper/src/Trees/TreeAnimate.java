@@ -20,7 +20,7 @@ public class TreeAnimate {
 	public static void run() {
 		while (running) {
 				redraw();
-				counter = (counter + 1) % 500;
+				counter = (counter + 1) % 250;
 				if(counter == 0){
 					dv.incFrame();
 				}
