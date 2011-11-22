@@ -15,16 +15,16 @@ import android.widget.Toast;
 
 public class AVLDrawView extends View {
 	public final static String SIMPLE_SINGLE_ROTATION = "ssingle";
-	private final int SIMPLE_SINGLE_ROTATION_FRAMES = 27;
-	private final int SIMPLE_SINGLE_BREAK_POINTS[] = { 0, 24, 25, 26 };
+	private final int SIMPLE_SINGLE_ROTATION_FRAMES = 36;
+	private final int SIMPLE_SINGLE_BREAK_POINTS[] = { 0, 31, 32, 33, 34, 35 };
 	
 	public final static String SINGLE_ROTATION = "single";
 	private final int SINGLE_ROTATION_FRAMES = 46;
 	private final int SINGLE_BREAK_POINTS[] = { 0, 22, 23, 41, 42, 43, 44, 45 };
 		
 	public final static String DOUBLE_ROTATION = "double";
-	private final int DOUBLE_ROTATION_FRAMES = 39;
-	private final int DOUBLE_BREAK_POINTS[] = { 0, 17, 25, 26, 35, 36, 37, 38 };
+	private final int DOUBLE_ROTATION_FRAMES = 88;
+	private final int DOUBLE_BREAK_POINTS[] = { 0, 1, 16, 17, 38, 39, 40, 41, 63, 64, 82, 83, 84, 85, 86, 87 };
 
 	private TextView displayTextView;
 	private Resources appR;
@@ -38,17 +38,29 @@ public class AVLDrawView extends View {
 	
 	private String displayText[][] = {
 			{ 		
-					"Node 15 is out of balance",
-					"Node 15 is moved to be the left child of node 20",
-					"change the weight of node 15",
-					"change the weight of node 20"},
+					"Node 15 is now critically imbalanced with the addition of node 25. Since node 15 is right heavy and 15's child on that side is also right heavy a single rotation on node 15 is needed to restore balance.",
+					"Now that the tree has been restructured we need to reset the weights of the nodes.",
+					"Node 15 is now evenly weighted on the left and right.",
+					"Node 25 remains the same weight and is no longer causing the imbalance.",
+					"Node 20 is now evenly weighted on the left and right.",
+					"The single rotation is now complete and the tree is back in balance."},
 			{
-					"This inbalance needs to be fixed with a double rotation.\n\nFirst we rotate around Node 25.",
-					"After first rotation.",
-					"Now we do a left rotation around Node 10",
-					"Node 15 is changed to be the right child of Node 10", "",
-					"Change weight of 10", "Change weight of 20",
-					"Change weight of 25" }, 
+					"Node 10 becomes critically imbalanced with the addition of node 15. Node 10 is heavy on the right side. Since 10's child on that side is heavy on its left a double rotation is needed in order to restore balance.",
+					"First we will perform a right rotation on node 25.",
+					"We need to change the right child of 10 to now point at node 20.",
+					"Additionally the right child of 20 is now node 25.", 
+					"The first rotation is complete. Now let's reset the weights on the nodes for this first rotation.",
+					"Node 25 is now right heavy by one instead of left heavy.", 
+					"Node 20 is now right heavy by one instead of left heavy.",
+					"Essentially what we have done is take the \"dog leg\" imbalance and turned it into and imbalance that can be solved by another single rotation, this time on node 10. This final rotation will restore balance in the tree.",
+					"Swap 15 to the right child of 10.",
+					"Node 15 is now the right child of 10.",
+					"We now weed to reset the weights of the nodes in the tree.",
+					"Node 10 is now even weighted on both the right and the left.",
+					"Node 15 has been successfully inserted into the tree.",
+					"Node 25 remains right heavy by one.",
+					"Node 20 is now evenly weighted on the left and right sides.",
+					"The double rotation on the tree is now complete and the tree is back in balance."}, 
 			{		
 					"The addition of node 30 creates a critical imbalance on node 10. 10's child on the right heavy side is also right heavy so a single left rotation is needed to restore balance.",
 					"To preserve order in the tree the left child of node 20 needs to be switched to the right child of node 10.",
@@ -105,6 +117,7 @@ public class AVLDrawView extends View {
 		canvas.drawBitmap(bd, 0, 0, paint);
 
 		displayTextView.setText(getDisplay()[stringColorCounter]);
+		//displayTextView.setText(displayTextView.getText() + "\nframeSpot: " + frameSpot);
 
 	}
 
