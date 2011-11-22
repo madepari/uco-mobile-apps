@@ -10,7 +10,7 @@ import DrawViews.AVLDrawView;
 public class TreeAnimate {
 	static AVLDrawView dv;
 	String type = "";
-	private static boolean running = true;
+	private static boolean running;
 	private static boolean animating = true;
 	private static int counter = 0;
 	public TreeAnimate(AVLDrawView AVLdv) {
@@ -18,11 +18,17 @@ public class TreeAnimate {
 	}
 
 	public static void run() {
-		while (running) {
+		running = true;
+		while (true) {
+				if (!running){
+					stopThread();
+					return;
+				}
 				redraw();
 				counter = (counter + 1) % 250;
 				if(counter == 0){
 					dv.incFrame();
+					Thread.yield();
 				}
 		}
 	}

@@ -12,7 +12,7 @@ import android.view.MenuInflater;
 public class DrawViewActivity extends Activity {
 	private Types t = new Types();
 	private int spot;
-	DrawView drawView = null;//new DrawView(this, "BubbleSort");
+	DrawView drawView = null;
 	Display display;  
 
 	@Override

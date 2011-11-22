@@ -11,20 +11,18 @@ import android.graphics.Paint;
 import android.view.Display;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AVLDrawView extends View {
-	public final String SIMPLE_SINGLE_ROTATION = "ssingle";
+	public final static String SIMPLE_SINGLE_ROTATION = "ssingle";
 	private final int SIMPLE_SINGLE_ROTATION_FRAMES = 27;
 	private final int SIMPLE_SINGLE_BREAK_POINTS[] = { 0, 24, 25, 26 };
 	
-	public final String SINGLE_ROTATION = "single";
+	public final static String SINGLE_ROTATION = "single";
 	private final int SINGLE_ROTATION_FRAMES = 46;
 	private final int SINGLE_BREAK_POINTS[] = { 0, 22, 23, 41, 42, 43, 44, 45 };
-	
-	
-	
-	
-	public final String DOUBLE_ROTATION = "double";
+		
+	public final static String DOUBLE_ROTATION = "double";
 	private final int DOUBLE_ROTATION_FRAMES = 39;
 	private final int DOUBLE_BREAK_POINTS[] = { 0, 17, 25, 26, 35, 36, 37, 38 };
 
@@ -33,7 +31,7 @@ public class AVLDrawView extends View {
 	private Thread animationHandle = null;
 	private TreeAnimate animate = new TreeAnimate(this);
 	private Paint paint = new Paint();
-	private String type = SINGLE_ROTATION;
+	private String type;
 	private int frameSpot = 0;
 	private boolean paused = true;
 	private int stringColorCounter = 0;
@@ -63,10 +61,11 @@ public class AVLDrawView extends View {
 	
 	};
 
-	public AVLDrawView(Context context, Display d) {
+	public AVLDrawView(Context context, Display d, String type) {
 		super(context);
 		setFocusable(true);
 		setFocusableInTouchMode(true);
+		this.type = type;
 		paint.setAntiAlias(true);
 		appR = context.getResources();
 	}
@@ -105,7 +104,8 @@ public class AVLDrawView extends View {
 		Bitmap bd = BitmapFactory.decodeResource(getResources(), resID);
 		canvas.drawBitmap(bd, 0, 0, paint);
 
-		displayTextView.setText(getDisplay()[stringColorCounter]);
+		displayTextView.setText(getDisplay()[stringColorCounter] + "\nframeSpot: " + frameSpot);
+
 	}
 
 	public boolean isPaused() {
@@ -156,7 +156,7 @@ public class AVLDrawView extends View {
 					}
 				}
 			}
-			if (type.equals(SINGLE_ROTATION)) {
+			else if (type.equals(SINGLE_ROTATION)) {
 				frameSpot %= SINGLE_ROTATION_FRAMES;
 				for (int x : SINGLE_BREAK_POINTS) {
 					if (x == frameSpot) {
@@ -165,7 +165,7 @@ public class AVLDrawView extends View {
 					}
 				}
 			}			
-			if (type.equals(DOUBLE_ROTATION)) {
+			else if (type.equals(DOUBLE_ROTATION)) {
 				frameSpot %= DOUBLE_ROTATION_FRAMES;
 				for (int x : DOUBLE_BREAK_POINTS) {
 					if (x == frameSpot) {

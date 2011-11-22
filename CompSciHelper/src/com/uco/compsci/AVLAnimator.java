@@ -18,8 +18,16 @@ public class AVLAnimator extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		String type = getIntent().getExtras().getString("type");
+		if(type.equals("simple_single_rotation")){
+			type = AVLDrawView.SIMPLE_SINGLE_ROTATION;
+		}else if(type.equals("single_rotation")){
+			type = AVLDrawView.SINGLE_ROTATION;
+		}else if(type.equals("double_rotation")){
+			type = AVLDrawView.DOUBLE_ROTATION;
+		}
 		
-		AVLdv = new AVLDrawView(this, getWindowManager().getDefaultDisplay());
+		AVLdv = new AVLDrawView(this, getWindowManager().getDefaultDisplay(), type);
 		AVLdv.setId(1000);
 		createRelative();
 		
@@ -33,6 +41,7 @@ public class AVLAnimator extends Activity {
 	protected void onDestroy() {
 		//stops the thread
 		AVLdv.killThread();
+		Thread.yield();
 		super.onDestroy();
 	}
 	
