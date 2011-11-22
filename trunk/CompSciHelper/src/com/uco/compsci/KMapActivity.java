@@ -148,14 +148,14 @@ public class KMapActivity extends Activity {
 		case R.id.vieweq:
 			final Dialog dialog = new Dialog(this);
 			dialog.setContentView(R.layout.vieweq);
-			dialog.setTitle("This is my custom dialog box");
+			dialog.setTitle("Quine–McCluskey Algorithm");
 			dialog.setCancelable(true);
 
 			TextView text = (TextView) dialog.findViewById(R.id.TextView01);
-			text.setText(KMapControl.getEquation() + '\n');
-			text.setText(KMapControl.getReducedEquation());
+			text.setText("\nEquation:\n" + KMapControl.getEquation() + "\n\nReduced Equation:\n" + KMapControl.getReducedEquation() + "\n\n");
 
 			Button button = (Button) dialog.findViewById(R.id.Button01);
+			button.setText("Close");
 			button.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
