@@ -17,4 +17,8 @@
     <string name="kmap">K-Map</string>
     <string name="next">Next Animation</string>
     <string name="avl">AVL Tree</string>
+    <string name="sort">Sorts</string>
+    <string name="ssinglerotation">Simple Single Rotation</string>
+    <string name="singlerotation">Single Rotation</string>
+    <string name="doublerotation">Double Rotation</string>
 </resources>

@@ -2,45 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent" android:layout_height="match_parent"
 	android:weightSum="1" android:orientation="vertical">
-	<TextView android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:text="@string/numberofnodes"
-		android:id="@+id/textNodesQ"></TextView>
-	<EditText android:layout_width="match_parent"
-		android:layout_height="wrap_content" android:inputType="number"
-		android:id="@+id/enterNodeNumber" android:numeric="integer"
-		android:text="4">
-		<requestFocus></requestFocus>
-	</EditText>
 	<RadioGroup android:layout_height="wrap_content"
 		android:layout_width="match_parent" android:orientation="horizontal"
 		android:id="@+id/radGroup">
-		<RadioButton android:layout_height="wrap_content"
-			android:checked="true" android:layout_weight="1"
-			android:layout_width="0dp" android:text="@string/textSorts"
-			android:id="@+id/radioSort" android:onClick="onClick"></RadioButton>
-		<RadioButton android:layout_height="wrap_content"
-			android:layout_weight="1" android:onClick="onClick"
-			android:layout_width="0dp" android:text="@string/textTrees"
-			android:id="@+id/radioTrees"></RadioButton>
 	</RadioGroup>
 	<LinearLayout android:layout_height="wrap_content"
 		android:id="@+id/linearLayout1" android:layout_width="match_parent"
 		android:orientation="vertical">
-		<Button android:layout_height="0dp" android:gravity="center|center_horizontal" android:onClick="onClick" android:layout_gravity="center" android:layout_weight="1" android:layout_width="174dp" android:id="@+id/avl" android:text="@string/avl"></Button>
-		<Button android:layout_gravity="center" android:layout_width="174dp" android:onClick="onClick" android:gravity="center|center_horizontal" android:layout_weight="1" android:layout_height="0dp" android:text="@string/kmap" android:id="@+id/kmap"></Button>
+		<Button android:layout_height="0dp" android:gravity="center|center_horizontal" android:onClick="onClick" android:layout_gravity="center" android:layout_weight="1" android:layout_width="174dp" android:text="@string/avl" android:id="@+id/avloption"></Button>
+		<Button android:layout_gravity="center" android:layout_width="174dp" android:onClick="onClick" android:gravity="center|center_horizontal" android:layout_weight="1" android:layout_height="0dp" android:text="@string/kmap" android:id="@+id/kmapoption"></Button>
 		<Button android:layout_width="174dp" android:layout_height="0dp"
-			android:text="Bubble Sort" android:id="@+id/bubble"
 			android:layout_gravity="center" android:onClick="onClick"
-			android:gravity="center|center_horizontal" android:layout_weight="1"></Button>
-		<Button android:layout_width="174dp" android:layout_height="0dp"
-			android:text="Shaker Sort" android:id="@+id/shaker"
-			android:layout_gravity="center" android:onClick="onClick"
-			android:gravity="center|center_horizontal" android:layout_weight="1"></Button>
-		<Button android:layout_gravity="center" android:layout_width="174dp"
-			android:layout_weight="1" android:layout_height="0dp"
-			android:onClick="onClick" android:gravity="center|center_horizontal"
-			android:id="@+id/binarytree" android:text="@string/binarytree"
-			android:visibility="invisible"></Button>
+			android:gravity="center|center_horizontal" android:layout_weight="1" android:text="@string/sort" android:id="@+id/sortoption"></Button>
 	</LinearLayout>
 
 </LinearLayout>
