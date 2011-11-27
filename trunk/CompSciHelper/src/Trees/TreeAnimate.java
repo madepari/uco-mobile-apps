@@ -1,10 +1,5 @@
 package Trees;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-import android.os.SystemClock;
-
 import DrawViews.AVLDrawView;
 
 public class TreeAnimate {
@@ -13,6 +8,7 @@ public class TreeAnimate {
 	private static boolean running;
 	private static boolean animating = true;
 	private static int counter = 0;
+	
 	public TreeAnimate(AVLDrawView AVLdv) {
 		dv = AVLdv;
 	}

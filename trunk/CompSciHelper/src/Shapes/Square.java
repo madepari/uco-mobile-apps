@@ -12,9 +12,11 @@ public class Square extends Shape {
 	public void Draw(Canvas canvas, Paint paint) {
 		paint.setColor(super.getColor());
 		canvas.drawRect(getX(), getY(), getX() + xINC, getY() + yINC, paint);
-		paint.setColor(Color.RED);
-		paint.setTextSize(35);
-		canvas.drawText(getNumb() + " ", getCenterX(), getCenterY(), paint);
+		if (getNumb() != -1) {
+			paint.setColor(Color.RED);
+			paint.setTextSize(35);
+			canvas.drawText(getNumb() + " ", getCenterX(), getCenterY(), paint);
+		}
 	}
 
 	public Square(int xloc, int yloc, int n) {
@@ -22,6 +24,7 @@ public class Square extends Shape {
 		setY(yloc);
 		setNumb(n);
 	}
+
 	public Square(int xloc, int yloc, int n, int color) {
 		setX(xloc);
 		setY(yloc);
