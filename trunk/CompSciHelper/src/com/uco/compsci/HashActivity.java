@@ -14,7 +14,7 @@ public class HashActivity extends Activity {
 	private Types t = new Types();
 	private int spot;
 	HashDrawView drawView = null;
-	Display display;  
+	Display display;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -26,38 +26,37 @@ public class HashActivity extends Activity {
 	@SuppressWarnings("finally")
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		//try {
-			//if it is currently drawing we will wait
-			//if (drawView.getWait() || drawView.getFinished()) {
+		// try {
+		// if it is currently drawing we will wait
+		// if (drawView.getWait() || drawView.getFinished()) {
 
-				if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN)
-					drawView.addItem();
-				//else
-					super.onKeyDown(keyCode, event);
-		//	}
+		if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN)
+			drawView.addItem();
+		else
+			super.onKeyDown(keyCode, event);
+		// }
 
-		//} catch (Exception e) {
-	//		super.onKeyDown(keyCode, event);
-	//	} finally {
-			return true;
-		//}
+		// } catch (Exception e) {
+		// super.onKeyDown(keyCode, event);
+		// } finally {
+		return true;
+		// }
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater(); // from activity
-		//inflater.inflate(R.menu.selection, menu);
+		// inflater.inflate(R.menu.selection, menu);
 		// It is important to return true to see the menu
 		return true;
 	}
-	
-	
-	//onDestory is called when activity is being destroyed by the system
-	//very important to override this because of our extra thread
+
+	// onDestory is called when activity is being destroyed by the system
+	// very important to override this because of our extra thread
 	@Override
 	protected void onDestroy() {
-		//stops the thread
-		//drawView.stopThread();
+		// stops the thread
+		// drawView.stopThread();
 		super.onDestroy();
 	}
 }
