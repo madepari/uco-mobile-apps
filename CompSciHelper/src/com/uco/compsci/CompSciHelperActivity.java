@@ -38,6 +38,10 @@ public class CompSciHelperActivity extends Activity {
 			i.putExtra("option", "avls");
 			startActivity(i);
 			break;
+		case R.id.hash:
+			i = new Intent("com.uco.compsci.HashActivity");
+			startActivity(i);
+			break;
 		}
 
 	}
