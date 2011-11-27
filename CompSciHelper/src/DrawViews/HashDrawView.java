@@ -27,6 +27,8 @@ public class HashDrawView extends View implements OnTouchListener {
 	private int height;
 
 	public void addItem() {
+		hashCont.addToHash();
+		invalidate();
 	}
 	
 	public HashDrawView(Context context) {

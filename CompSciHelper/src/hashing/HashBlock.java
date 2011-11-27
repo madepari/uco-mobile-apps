@@ -6,10 +6,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-public class HashBlock extends HashThread {
+public class HashBlock {
 	private int allocatedNumber;
 	private Square block;
-
+	
 	public HashBlock() {
 		allocatedNumber = 0;
 		block = new Square(100, 10, -1);
@@ -55,5 +55,15 @@ public class HashBlock extends HashThread {
 	public void move(float deltaY) {
 		block.setY(block.getY() + deltaY);
 	}
-
+	public void setMainActive(){
+		block.setColor(Color.BLUE);
+	}
+	
+	public void setActive(){
+		block.setColor(Color.GREEN);
+	}
+	
+	public void setNotActive(){
+		block.setColor(Color.WHITE);
+	}
 }
