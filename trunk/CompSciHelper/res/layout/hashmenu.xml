@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<TextView android:layout_height="wrap_content"
+		android:layout_width="match_parent" android:text="@string/probeselection"
+		android:id="@+id/probedisplay"></TextView>
+	<Button android:layout_gravity="center" android:onClick="onClick"
+		android:layout_width="174dp" android:layout_height="wrap_content"
+		android:gravity="center|center_horizontal" android:text="@string/linearprobe"
+		android:id="@+id/linearprobe"></Button>
+	<Button android:layout_width="174dp" android:layout_gravity="center"
+		android:onClick="onClick" android:gravity="center|center_horizontal"
+		android:layout_height="wrap_content" android:text="@string/quadradicprobe"
+		android:id="@+id/quadradicprobe"></Button>
+	<Button android:layout_gravity="center" android:onClick="onClick"
+		android:layout_width="174dp" android:layout_height="wrap_content"
+		android:gravity="center|center_horizontal" android:id="@+id/chainingprobe"
+		android:text="@string/chainingprobe"></Button>
+</LinearLayout>

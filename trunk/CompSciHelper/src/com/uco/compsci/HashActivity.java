@@ -19,7 +19,8 @@ public class HashActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		drawView = new HashDrawView(this);
+		
+		drawView = new HashDrawView(this, getIntent().getExtras().getInt("type"));
 		setContentView(drawView);
 	}
 
