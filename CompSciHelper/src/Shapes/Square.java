@@ -5,8 +5,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 
 public class Square extends Shape {
-	private static final float xINC = 100;
-	private static final float yINC = 70;
+	protected static final float xINC = 100;
+	protected static final float yINC = 70;
 
 	@Override
 	public void Draw(Canvas canvas, Paint paint) {
@@ -19,13 +19,13 @@ public class Square extends Shape {
 		}
 	}
 
-	public Square(int xloc, int yloc, int n) {
-		setX(xloc);
-		setY(yloc);
+	public Square(float f, float g, int n) {
+		setX(f);
+		setY(g);
 		setNumb(n);
 	}
 
-	public Square(int xloc, int yloc, int n, int color) {
+	public Square(float xloc, float yloc, int n, int color) {
 		setX(xloc);
 		setY(yloc);
 		setNumb(n);

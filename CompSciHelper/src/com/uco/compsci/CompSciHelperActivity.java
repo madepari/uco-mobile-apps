@@ -21,9 +21,7 @@ public class CompSciHelperActivity extends Activity {
 	}
 
 	public void onClick(View target) {
-
 		switch (target.getId()) {
-
 		case R.id.sortoption:
 			i = new Intent("com.uco.compsci.MenuActivity");
 			i.putExtra("option", "sorts");
@@ -38,8 +36,9 @@ public class CompSciHelperActivity extends Activity {
 			i.putExtra("option", "avls");
 			startActivity(i);
 			break;
-		case R.id.hash:
-			i = new Intent("com.uco.compsci.HashActivity");
+		case R.id.hashoption:
+			i = new Intent("com.uco.compsci.MenuActivity");
+			i.putExtra("option", "hash");
 			startActivity(i);
 			break;
 		}

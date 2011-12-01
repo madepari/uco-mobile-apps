@@ -6,10 +6,10 @@
 		android:layout_width="match_parent" android:orientation="horizontal"
 		android:id="@+id/radGroup">
 	</RadioGroup>
-	<Button android:layout_width="174dp" android:gravity="center|center_horizontal" android:layout_gravity="center" android:onClick="onClick" android:layout_height="wrap_content" android:id="@+id/hash" android:text="@string/hash"></Button>
 	<LinearLayout android:layout_height="wrap_content"
 		android:id="@+id/linearLayout1" android:layout_width="match_parent"
 		android:orientation="vertical">
+		<Button android:layout_weight="1" android:id="@+id/hashoption" android:onClick="onClick" android:text="@string/hash" android:layout_width="174dp" android:layout_gravity="center" android:gravity="center|center_horizontal" android:layout_height="wrap_content"></Button>
 		<Button android:layout_height="0dp" android:gravity="center|center_horizontal"
 			android:onClick="onClick" android:layout_gravity="center"
 			android:layout_weight="1" android:layout_width="174dp" android:text="@string/avl"

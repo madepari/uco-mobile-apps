@@ -1,5 +1,7 @@
 package com.uco.compsci;
 
+import hashing.HashBlock;
+import hashing.Probing;
 import Shapes.Types;
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +13,7 @@ public class MenuActivity extends Activity {
 	private Intent i;
 	private Types t = new Types();
 	private String opt;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -19,6 +22,8 @@ public class MenuActivity extends Activity {
 			setContentView(R.layout.avlmenu);
 		} else if (opt.equals("sorts")) {
 			setContentView(R.layout.sort_menu);
+		} else if (opt.equals("hash")) {
+			setContentView(R.layout.hashmenu);
 		}
 
 	}
@@ -28,7 +33,8 @@ public class MenuActivity extends Activity {
 
 		// minium size for sorts will be 4
 		int size = 4;
-		if (opt.equals("sorts") && Integer.parseInt(numbNodes.getText().toString()) > 4) {
+		if (opt.equals("sorts")
+				&& Integer.parseInt(numbNodes.getText().toString()) > 4) {
 			size = Integer.parseInt(numbNodes.getText().toString());
 		}
 		switch (target.getId()) {
@@ -72,6 +78,37 @@ public class MenuActivity extends Activity {
 
 			startActivity(i);
 			break;
+		case R.id.linearprobe:
+			i = new Intent("com.uco.compsci.HashActivity");
+			// put in we want Quaker and the size
+			i.putExtra("type", Probing.LINEAR_PROBING);
+			startActivity(i);
+			break;
+		case R.id.quadradicprobe:
+			i = new Intent("com.uco.compsci.HashActivity");
+			// put in we want Quaker and the size
+			i.putExtra("type", Probing.QUADRATIC_PROBING);
+			startActivity(i);
+			break;
+		case R.id.chainingprobe:
+			i = new Intent("com.uco.compsci.HashActivity");
+			// put in we want Quaker and the size
+			i.putExtra("type", Probing.CHAINING_PROBING);
+			startActivity(i);
+			break;
+		case R.id.avldelete:
+			i = new Intent("com.uco.compsci.AVLAnimator");
+			i.putExtra("type", "delete");
+
+			startActivity(i);
+			break;
+		case R.id.btreeinsert:
+			i = new Intent("com.uco.compsci.AVLAnimator");
+			i.putExtra("type", "btreeinsert");
+
+			startActivity(i);
+			break;
+
 		}
 
 	}

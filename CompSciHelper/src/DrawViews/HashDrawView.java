@@ -20,7 +20,7 @@ public class HashDrawView extends View implements OnTouchListener {
 	private float ySpot = 0.0f;
 	private float xSpot = 0.0f;
 	static final float MAX_SPEED = 10.0f;
-	HashController hashCont = new HashController();
+	HashController hashCont;
 	Paint paint = new Paint();
 
 	private int width;
@@ -31,13 +31,13 @@ public class HashDrawView extends View implements OnTouchListener {
 		invalidate();
 	}
 	
-	public HashDrawView(Context context) {
+	public HashDrawView(Context context, int type) {
 		super(context);
 		setFocusable(true);
 		setFocusableInTouchMode(true);
 		this.setOnTouchListener(this);
 		paint.setAntiAlias(true);
-		
+		hashCont = new HashController(type);
 		//bt = new BinaryTree(new Node(new Circle(Math.abs(rnd.nextInt() % 50))));
 	}
 

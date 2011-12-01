@@ -10,13 +10,13 @@ public class HashController {
 	ArrayList<HashBlock> hashTable = new ArrayList<HashBlock>();
 	ArrayList<Integer> list = new ArrayList<Integer>();
 
-	Probing probe = new Probing(Probing.QUADRATIC_PROBING, 10);
-	
-	private int spot;
+	Probing probe = null;
+
 	int value;
 	int hashValue = NO_VALUE;
 
-	public HashController() {
+	public HashController(int type) {
+		probe = new Probing(type, 10);
 		HashBlock hb = new HashBlock();
 		hashTable.add(hb);
 		for (int x = 0; x < 9; x++) {
@@ -39,25 +39,36 @@ public class HashController {
 
 	public void addToHash() {
 		if (list.size() > 0) {
-			
+
 			if (hashValue == NO_VALUE) {
 				value = list.get(0);
 				hashValue = value % 10;
 				probe.setProbeSpot(hashValue);
 				hashTable.get(hashValue).setMainActive();
 			}
-			
-			if (hashTable.get(probe.getProbeSpot()).getStoredHashedValue() == -1) {
-				hashTable.get(probe.getProbeSpot()).setStoredHashValue(value);
+			if (probe.getType() == Probing.CHAINING_PROBING) {
+				if (hashTable.get(hashValue).getStoredHashedValue() == -1)
+					hashTable.get(hashValue).setStoredHashValue(value);
+				else
+					hashTable.get(hashValue).addChain(value);
 				list.remove(0);
-				probe.reset();
-				hashTable.get(hashValue).setNotActive();
 				hashValue = NO_VALUE;
-				value = NO_VALUE;				
 			} else {
-				hashTable.get(probe.getProbeSpot()).setNotActive();
-				probe.incProbe();
-				hashTable.get(probe.getProbeSpot()).setActive();
+				if (hashTable.get(probe.getProbeSpot()).getStoredHashedValue() == -1) {
+
+					hashTable.get(probe.getProbeSpot()).setStoredHashValue(
+							value);
+					list.remove(0);
+					probe.reset();
+					hashTable.get(hashValue).setNotActive();
+					hashValue = NO_VALUE;
+					value = NO_VALUE;
+
+				} else {
+					hashTable.get(probe.getProbeSpot()).setNotActive();
+					probe.incProbe();
+					hashTable.get(probe.getProbeSpot()).setActive();
+				}
 			}
 		}
 	}
