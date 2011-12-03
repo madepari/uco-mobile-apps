@@ -69,4 +69,12 @@ public class HashDrawView extends View implements OnTouchListener {
 		hashCont.addToHash();
 		invalidate();
 	}
+
+	public String getDisplay(String filter) {
+		return hashCont.getDisplay(filter);
+	}
+
+	public int getProbeType() {
+		return hashCont.getProbeType();
+	}
 }

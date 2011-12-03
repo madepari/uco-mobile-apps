@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<RelativeLayout android:id="@+id/relativeLayout1"
+		android:layout_height="match_parent" android:layout_width="match_parent">
+		<TableLayout android:layout_marginBottom="147dp"
+			android:layout_alignParentLeft="true" android:layout_height="wrap_content"
+			android:id="@+id/hashinfoTable" android:layout_alignParentBottom="true"
+			android:layout_width="match_parent">
+			<TableRow android:layout_width="wrap_content" android:id="@+id/tableRow1"
+				android:layout_height="wrap_content">
+				<LinearLayout android:layout_height="wrap_content"
+					android:id="@+id/linearLayout1" android:layout_width="wrap_content">
+					<TextView android:layout_width="wrap_content"
+						android:paddingRight="15dp" android:id="@+id/hashdisplayLeft"
+						android:text="TextView" android:layout_height="wrap_content"></TextView>
+					<TextView android:layout_width="wrap_content" android:id="@+id/hashdisplayCenter"
+						android:text="TextView" android:layout_height="wrap_content"></TextView>
+					<TextView android:paddingLeft="15dp" android:layout_width="wrap_content"
+						android:id="@+id/hashdisplayRight" android:text="TextView"
+						android:layout_height="wrap_content"></TextView>
+				</LinearLayout>
+			</TableRow>
+			<TableRow android:layout_width="wrap_content" android:id="@+id/tableRow2"
+				android:layout_height="wrap_content">
+				<LinearLayout android:layout_height="wrap_content"
+					android:id="@+id/LinearLayout01" android:layout_width="wrap_content">
+					<TextView android:layout_width="wrap_content"
+						android:paddingRight="15dp" android:id="@+id/hashcurrentLeft"
+						android:text="TextView" android:layout_height="wrap_content"></TextView>
+					<TextView android:layout_width="wrap_content" android:id="@+id/hashcurrentCenter"
+						android:text="TextView" android:layout_height="wrap_content"></TextView>
+					<TextView android:paddingLeft="15dp" android:layout_width="wrap_content"
+						android:id="@+id/hashcurrentRight" android:text="TextView"
+						android:layout_height="wrap_content"></TextView>
+				</LinearLayout>
+			</TableRow>
+			<TableRow android:baselineAligned="true"
+				android:layout_width="wrap_content" android:id="@+id/TableRow01"
+				android:layout_height="wrap_content">
+				<LinearLayout android:layout_height="wrap_content"
+					android:id="@+id/LinearLayout02" android:layout_width="wrap_content">
+					<TextView android:layout_width="wrap_content"
+						android:paddingRight="15dp" android:id="@+id/hashnextLeft"
+						android:text="TextView" android:layout_height="wrap_content"></TextView>
+					<TextView android:layout_width="wrap_content" android:id="@+id/hashnextCenter"
+						android:text="TextView" android:layout_height="wrap_content"></TextView>
+					<TextView android:paddingLeft="15dp" android:layout_width="wrap_content"
+						android:id="@+id/hashnextRight" android:text="TextView"
+						android:layout_height="wrap_content"></TextView>
+				</LinearLayout>
+			</TableRow>
+		</TableLayout>
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/wantTheseParams"
+			android:text="TextView" android:layout_alignParentTop="true"
+			android:layout_alignParentRight="true" android:layout_marginRight="58dp"
+			android:layout_marginTop="37dp"></TextView>
+	</RelativeLayout>
+
+</LinearLayout>
