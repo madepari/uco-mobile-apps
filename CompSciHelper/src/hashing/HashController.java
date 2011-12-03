@@ -25,7 +25,13 @@ public class HashController {
 			hb = new HashBlock(hb);
 			hashTable.add(hb);
 		}
-		for(int x : values){
+		int counter = 0;
+		for (int x : values) {
+			if (probe.getType() != Probing.CHAINING_PROBING) {
+				if (counter == 9)
+					break;
+				counter += 1;
+			}
 			list.add(x);
 		}
 	}
@@ -92,9 +98,6 @@ public class HashController {
 		for (HashBlock hb : hashTable) {
 			hb.Draw(canvas, paint);
 		}
-		paint.setTextSize(20);
-		canvas.drawText("value:" + value, 300, 50, paint);
-		canvas.drawText("hashValue: " + hashValue, 300, 100, paint);
 	}
 
 	public void move(float deltaY) {
@@ -102,6 +105,39 @@ public class HashController {
 			hb.move(deltaY);
 		}
 
+	}
+
+	public String getDisplay(String filter) {
+		if (filter.equals("CNum")) {
+			if (list.size() > 0)
+				return list.get(0) + "";
+			else
+				return "";
+		}
+		else if(filter.equals("NNum")){
+			if (list.size() > 1)
+				return list.get(1) + "";
+			else
+				return "";
+		}
+		else if(filter.equals("CMod")){
+			if (list.size() > 0)
+				return list.get(0) % 10 + "";
+			else
+				return "";
+		}
+		else if(filter.equals("NMod")){
+			if (list.size() > 1)
+				return list.get(1) % 10 + "";
+			else
+				return "";
+		}
+		return filter;
+
+	}
+
+	public int getProbeType() {
+		return probe.getType();
 	}
 
 }
