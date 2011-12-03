@@ -1,6 +1,8 @@
 package hashing;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -14,6 +16,19 @@ public class HashController {
 
 	int value;
 	int hashValue = NO_VALUE;
+
+	public HashController(int type, int[] values) {
+		probe = new Probing(type, 10);
+		HashBlock hb = new HashBlock();
+		hashTable.add(hb);
+		for (int x = 0; x < 9; x++) {
+			hb = new HashBlock(hb);
+			hashTable.add(hb);
+		}
+		for(int x : values){
+			list.add(x);
+		}
+	}
 
 	public HashController(int type) {
 		probe = new Probing(type, 10);

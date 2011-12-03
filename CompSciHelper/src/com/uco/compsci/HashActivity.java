@@ -1,6 +1,5 @@
 package com.uco.compsci;
 
-import DrawViews.DrawView;
 import DrawViews.HashDrawView;
 import Shapes.Types;
 import android.app.Activity;
@@ -13,14 +12,21 @@ import android.view.MenuInflater;
 public class HashActivity extends Activity {
 	private Types t = new Types();
 	private int spot;
+	private int[] values;
 	HashDrawView drawView = null;
 	Display display;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		drawView = new HashDrawView(this, getIntent().getExtras().getInt("type"));
+		values = getIntent().getIntArrayExtra("values");
+		if (values.length != 0)
+			drawView = new HashDrawView(this, getIntent().getExtras().getInt(
+					"type"), values);
+		else
+			drawView = new HashDrawView(this, getIntent().getExtras().getInt(
+					"type"));
+
 		setContentView(drawView);
 	}
 

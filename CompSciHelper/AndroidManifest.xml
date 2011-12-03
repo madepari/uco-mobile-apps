@@ -5,44 +5,44 @@
 
 	<application android:icon="@drawable/icon" android:label="@string/app_name">
 		<activity android:name=".CompSciHelperActivity"
-			android:label="@string/app_name">
+			android:label="@string/app_name" android:screenOrientation="portrait">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".DrawViewActivity" android:label="@string/app_name">
+		<activity android:name=".DrawViewActivity" android:label="@string/app_name" android:screenOrientation="portrait">
 			<intent-filter>
 				<action android:name="com.uco.compsci.DrawViewActivity" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
 
-		<activity android:name=".TreeDrawViewActivity" android:label="@string/app_name">
+		<activity android:name=".TreeDrawViewActivity" android:label="@string/app_name" android:screenOrientation="portrait">
 			<intent-filter>
 				<action android:name="com.uco.compsci.TreeDrawViewActivity" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".KMapActivity" android:label="@string/app_name">
+		<activity android:name=".KMapActivity" android:label="@string/app_name" android:screenOrientation="portrait">
 			<intent-filter>
 				<action android:name="com.uco.compsci.KMapActivity" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".AVLAnimator" android:label="@string/app_name">
+		<activity android:name=".AVLAnimator" android:label="@string/app_name" android:screenOrientation="portrait">
 			<intent-filter>
 				<action android:name="com.uco.compsci.AVLAnimator" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".MenuActivity" android:label="@string/app_name">
+		<activity android:name=".MenuActivity" android:label="@string/app_name" android:screenOrientation="portrait">
 			<intent-filter>
 				<action android:name="com.uco.compsci.MenuActivity" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".HashActivity" android:label="@string/app_name">
+		<activity android:name=".HashActivity" android:label="@string/app_name" android:screenOrientation="portrait">
 			<intent-filter>
 				<action android:name="com.uco.compsci.HashActivity" />
 				<category android:name="android.intent.category.DEFAULT" />

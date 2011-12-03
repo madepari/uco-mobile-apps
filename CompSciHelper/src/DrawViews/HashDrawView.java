@@ -4,10 +4,6 @@ import hashing.HashController;
 
 import java.util.Random;
 
-import Shapes.Circle;
-import Shapes.Types;
-import Trees.BinaryTree;
-import Trees.Node;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -16,19 +12,19 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 
 public class HashDrawView extends View implements OnTouchListener {
-	private Random rnd = new Random();
 	private float ySpot = 0.0f;
 	private float xSpot = 0.0f;
-	static final float MAX_SPEED = 10.0f;
 	HashController hashCont;
 	Paint paint = new Paint();
 
-	private int width;
-	private int height;
 
-	public void addItem() {
-		hashCont.addToHash();
-		invalidate();
+	public HashDrawView(Context context, int type, int[] values) {
+		super(context);
+		setFocusable(true);
+		setFocusableInTouchMode(true);
+		this.setOnTouchListener(this);
+		paint.setAntiAlias(true);
+		hashCont = new HashController(type, values);
 	}
 	
 	public HashDrawView(Context context, int type) {
@@ -38,10 +34,8 @@ public class HashDrawView extends View implements OnTouchListener {
 		this.setOnTouchListener(this);
 		paint.setAntiAlias(true);
 		hashCont = new HashController(type);
-		//bt = new BinaryTree(new Node(new Circle(Math.abs(rnd.nextInt() % 50))));
 	}
 
-	//draws by traversing the list
 	@Override
 	public void onDraw(Canvas canvas) {
 		hashCont.draw(canvas, paint);
@@ -71,9 +65,8 @@ public class HashDrawView extends View implements OnTouchListener {
 		return true;
 	}
 
-	//setter
-	public void setDisplaySize(int height, int width) {
-		this.width = width;
-		this.height = height;
+	public void addItem() {
+		hashCont.addToHash();
+		invalidate();
 	}
 }

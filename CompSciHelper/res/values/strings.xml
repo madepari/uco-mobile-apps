@@ -20,4 +20,6 @@
     <string name="probeselection">Select the Probe to use.</string>
     <string name="avldelete">AVL Delete</string>
     <string name="btreeinsert">B-tree Insertion</string>
+    <string name="addhashitem">Add Value</string>
+    <string name="hashlistheader">Long Click to add new item.\nClick the number to edit/delete item.</string>
 </resources>
