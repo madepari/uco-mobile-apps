@@ -5,7 +5,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 
 public class Square extends Shape {
-	protected static final float xINC = 100;
+	protected static final float xINC = 50;
 	protected static final float yINC = 70;
 
 	@Override
@@ -50,6 +50,6 @@ public class Square extends Shape {
 	}
 
 	public float getCenterX() {
-		return getX();
+		return getX() + (xINC / 4);
 	}
 }

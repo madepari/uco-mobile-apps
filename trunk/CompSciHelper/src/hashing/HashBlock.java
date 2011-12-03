@@ -17,7 +17,7 @@ public class HashBlock {
 	}
 
 	public HashBlock(Square s){
-		block = new Square(100, 10, -1);
+		block = s;
 	}
 	
 	public HashBlock(HashBlock s) {
@@ -64,6 +64,8 @@ public class HashBlock {
 
 	public void move(float deltaY) {
 		block.setY(block.getY() + deltaY);
+		if(chainLink != null)
+			chainLink.move(deltaY);
 	}
 
 	public void setMainActive() {
@@ -90,7 +92,7 @@ public class HashBlock {
 		if(this.chainLink != null){
 			this.chainLink.addChain(n);
 		}else {
-			this.chainLink = new HashBlock(new Square(block.getX() + 120, block.getY(), n));
+			this.chainLink = new HashBlock(new Square(block.getX() + 60, block.getY(), n));
 		}
 	}
 }
