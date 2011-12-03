@@ -1,17 +1,15 @@
 package DrawViews;
 
-import Trees.TreeAnimate;
+import Animator.TreeAnimate;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.Display;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class AVLDrawView extends View {
 	public final static String SIMPLE_SINGLE_ROTATION = "ssingle";
