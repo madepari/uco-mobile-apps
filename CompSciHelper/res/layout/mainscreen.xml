@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent" android:layout_height="match_parent"
-	android:weightSum="1" android:orientation="vertical">
-	<RadioGroup android:layout_height="wrap_content"
-		android:layout_width="match_parent" android:orientation="horizontal"
-		android:id="@+id/radGroup">
-	</RadioGroup>
-	<LinearLayout android:layout_height="wrap_content"
-		android:id="@+id/linearLayout1" android:layout_width="match_parent"
-		android:orientation="vertical">
-		<Button android:layout_weight="1" android:id="@+id/hashoption" android:onClick="onClick" android:text="@string/hash" android:layout_width="174dp" android:layout_gravity="center" android:gravity="center|center_horizontal" android:layout_height="wrap_content"></Button>
-		<Button android:layout_height="0dp" android:gravity="center|center_horizontal"
-			android:onClick="onClick" android:layout_gravity="center"
-			android:layout_weight="1" android:layout_width="174dp" android:text="@string/avl"
-			android:id="@+id/avloption"></Button>
-		<Button android:layout_gravity="center" android:layout_width="174dp"
-			android:onClick="onClick" android:gravity="center|center_horizontal"
-			android:layout_weight="1" android:layout_height="0dp" android:text="@string/kmap"
-			android:id="@+id/kmapoption"></Button>
-		<Button android:layout_width="174dp" android:layout_height="0dp"
-			android:layout_gravity="center" android:onClick="onClick"
-			android:gravity="center|center_horizontal" android:layout_weight="1"
-			android:text="@string/sort" android:id="@+id/sortoption"></Button>
-	</LinearLayout>
+	android:weightSum="1" android:orientation="vertical"
+	android:background="@drawable/binary">
+	<RelativeLayout android:id="@+id/relativeLayout1"
+		android:layout_width="match_parent" android:layout_height="match_parent">
+		<LinearLayout android:layout_height="wrap_content"
+			android:id="@+id/linearLayout1" android:layout_width="match_parent"
+			android:orientation="vertical" android:layout_alignParentBottom="true"
+			android:layout_alignParentLeft="true" android:layout_marginBottom="84dp">
+			<Button android:layout_gravity="center" android:gravity="center|center_horizontal"
+				android:layout_width="174dp" android:layout_weight="1"
+				android:onClick="onClick" android:id="@+id/hashoption"
+				android:layout_height="wrap_content" android:text="@string/hash"></Button>
+			<Button android:layout_gravity="center" android:gravity="center|center_horizontal"
+				android:layout_width="174dp" android:layout_weight="1"
+				android:onClick="onClick" android:id="@+id/avloption"
+				android:layout_height="0dp" android:text="@string/avl"></Button>
+			<Button android:layout_gravity="center" android:gravity="center|center_horizontal"
+				android:layout_width="174dp" android:layout_weight="1"
+				android:onClick="onClick" android:id="@+id/kmapoption"
+				android:layout_height="0dp" android:text="@string/kmap"></Button>
+			<Button android:layout_gravity="center" android:gravity="center|center_horizontal"
+				android:layout_width="174dp" android:layout_weight="1"
+				android:onClick="onClick" android:id="@+id/sortoption"
+				android:layout_height="0dp" android:text="@string/sort"></Button>
+		</LinearLayout>
+		<TextView android:textColor="#fff000" android:textSize="30px"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:id="@+id/textView1" android:text="@string/maindisplay"
+			android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
+			android:layout_marginTop="87dp"></TextView>
+	</RelativeLayout>
 
 </LinearLayout>

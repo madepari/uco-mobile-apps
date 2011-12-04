@@ -100,7 +100,7 @@ public class KMapActivity extends Activity {
 					public void onCheckedChanged(CompoundButton arg0,
 							boolean arg1) {
 						KMapControl.setVariableAtLocation(arg0.getId(), arg1);
-						String s = "Minterm: " + arg0.getId() + "\n"
+						String s = "\nLast Selected:\n\nMinterm: " + arg0.getId() + "\n"
 								+ "State: ";
 						if (arg1 == false)
 							s += "0";
@@ -108,10 +108,11 @@ public class KMapActivity extends Activity {
 							s += "1";
 						s += "\nBinary: "
 								+ KMapControl.getBinarySpot(arg0.getId());
-						s += "\nVars: "
+						s += "\nVariables: "
 								+ KMapControl.getStringVariableAtLocation(arg0
 										.getId());
 						display.setText(s);
+
 					}
 				});
 				tr.addView(c);
@@ -152,7 +153,19 @@ public class KMapActivity extends Activity {
 			dialog.setCancelable(true);
 
 			TextView text = (TextView) dialog.findViewById(R.id.TextView01);
-			text.setText("\nEquation:\n" + KMapControl.getEquation() + "\n\nReduced Equation:\n" + KMapControl.getReducedEquation() + "\n\n");
+			String EQ = "";
+			String REQ = "";
+			try{
+				EQ = KMapControl.getEquation();
+				REQ = KMapControl.getReducedEquation();
+				if(REQ == ""){
+					REQ = "1";
+				}
+			} catch (Exception e){
+				REQ = "0";
+			}
+
+			text.setText("\nEquation:\n" + EQ + "\n\nReduced Equation:\n" + REQ + "\n\n");
 
 			Button button = (Button) dialog.findViewById(R.id.Button01);
 			button.setText("Close");
