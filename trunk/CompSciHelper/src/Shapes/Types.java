@@ -3,7 +3,7 @@ package Shapes;
 public class Types {
 	public enum type {
 	    BubbleSort, QuakerSort,
-	    BinaryTree
+	    QuickSort
 	}
 	
 	public type whatType;
@@ -16,8 +16,8 @@ public class Types {
 			whatType = type.BubbleSort;
 		else if (s == "QuakerSort")
 			whatType = type.QuakerSort;
-		else if(s == "BinaryTree")
-			whatType = type.BinaryTree;
+		else if(s == "QuickSort")
+			whatType = type.QuickSort;
 	}
 	public void setType(int i){
 		whatType = type.values()[i];

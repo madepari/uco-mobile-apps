@@ -219,7 +219,15 @@ public class MenuActivity extends Activity {
 			i.putExtra("size", size);
 			startActivity(i);
 			break;
-
+		case R.id.quick:
+			t.setType("QuickSort");
+			// create new sortActivity
+			i = new Intent("com.uco.compsci.DrawViewActivity");
+			// put in we want Quaker and the size
+			i.putExtra("type", t.whatType.ordinal());
+			i.putExtra("size", size);
+			startActivity(i);
+			break;
 		/*
 		 * Data Trees
 		 */

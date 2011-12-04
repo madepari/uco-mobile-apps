@@ -61,19 +61,10 @@ public class HashActivity extends Activity {
 	@SuppressWarnings("finally")
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// try {
-		// if it is currently drawing we will wait
-		// if (drawView.getWait() || drawView.getFinished()) {
-
 		if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN)
 			drawView.addItem();
 		else
 			super.onKeyDown(keyCode, event);
-		// }
-
-		// } catch (Exception e) {
-		// super.onKeyDown(keyCode, event);
-		// } finally {
 		setDisplayValues();
 		return true;
 		// }
@@ -197,12 +188,12 @@ public class HashActivity extends Activity {
 		currentLeft.setText(drawView.getDisplay("CNum"));
 		currentCenter.setText(drawView.getDisplay("CMod"));
 		if (drawView.getProbeType() != Probing.CHAINING_PROBING)
-			currentRight.setText(drawView.getDisplay("CNum"));
+			currentRight.setText(drawView.getDisplay("CCol"));
 
 		nextLeft.setText(drawView.getDisplay("NNum"));
 		nextCenter.setText(drawView.getDisplay("NMod"));
 		if (drawView.getProbeType() != Probing.CHAINING_PROBING)
-			currentRight.setText(drawView.getDisplay("CNum"));
+			nextRight.setText(drawView.getDisplay("NCol"));
 	}
 
 	protected void setTextUp(TextView t) {

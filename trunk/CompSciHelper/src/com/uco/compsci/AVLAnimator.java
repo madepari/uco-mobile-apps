@@ -2,8 +2,10 @@ package com.uco.compsci;
 
 import DrawViews.AVLDrawView;
 import android.app.Activity;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -61,6 +63,7 @@ public class AVLAnimator extends Activity {
 		b.setId(2000);
 		b.setOnClickListener(new Button.OnClickListener() {
 			public void onClick(View v) {
+				if(!AVLdv.isRunning())
 				AVLdv.buttonChangePause();
 			}
 		});
@@ -72,11 +75,15 @@ public class AVLAnimator extends Activity {
 		params.addRule(RelativeLayout.ALIGN_PARENT_LEFT, RelativeLayout.TRUE);
 		params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
 		params.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
-		params.addRule(RelativeLayout.ABOVE, 2000);
-	
-		tv.setGravity(Gravity.BOTTOM);
+		
+		Resources r = getResources();
+		params.setMargins(
+				0,
+				(int) Math.rint(TypedValue.applyDimension(
+						TypedValue.COMPLEX_UNIT_DIP, 300, r.getDisplayMetrics())),
+				0, 0);
 		tv.setLayoutParams(params);
-		tv.setTextSize(20);
+		tv.setTextSize(18);
 		tv.setTextColor(Color.RED);
 		AVLdv.setTextView(tv);
 		rl.addView(tv);

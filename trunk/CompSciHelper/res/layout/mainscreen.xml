@@ -10,21 +10,24 @@
 			android:orientation="vertical" android:layout_alignParentBottom="true"
 			android:layout_alignParentLeft="true" android:layout_marginBottom="84dp">
 			<Button android:layout_gravity="center" android:gravity="center|center_horizontal"
-				android:layout_width="174dp" android:layout_weight="1"
 				android:onClick="onClick" android:id="@+id/hashoption"
-				android:layout_height="wrap_content" android:text="@string/hash"></Button>
+				android:background="@drawable/hashbutton" android:layout_height="47dp"
+				android:layout_weight="0.24" android:layout_width="214dp"
+				android:layout_marginBottom="10dp"></Button>
 			<Button android:layout_gravity="center" android:gravity="center|center_horizontal"
-				android:layout_width="174dp" android:layout_weight="1"
-				android:onClick="onClick" android:id="@+id/avloption"
-				android:layout_height="0dp" android:text="@string/avl"></Button>
+				android:layout_height="47dp" android:layout_weight="0.24"
+				android:layout_width="214dp" android:layout_marginBottom="10dp"
+				android:onClick="onClick" android:background="@drawable/tree_data" android:id="@+id/avloption"></Button>
 			<Button android:layout_gravity="center" android:gravity="center|center_horizontal"
-				android:layout_width="174dp" android:layout_weight="1"
+				android:layout_height="47dp" android:layout_weight="0.24"
+				android:layout_width="214dp" android:layout_marginBottom="10dp"
 				android:onClick="onClick" android:id="@+id/kmapoption"
-				android:layout_height="0dp" android:text="@string/kmap"></Button>
+				android:background="@drawable/kmap"></Button>
 			<Button android:layout_gravity="center" android:gravity="center|center_horizontal"
-				android:layout_width="174dp" android:layout_weight="1"
+				android:layout_height="47dp" android:layout_weight="0.24"
+				android:layout_width="214dp" android:layout_marginBottom="10dp"
 				android:onClick="onClick" android:id="@+id/sortoption"
-				android:layout_height="0dp" android:text="@string/sort"></Button>
+				android:background="@drawable/sorts"></Button>
 		</LinearLayout>
 		<TextView android:textColor="#fff000" android:textSize="30px"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
