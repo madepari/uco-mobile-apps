@@ -23,4 +23,6 @@
     <string name="hashlistheader">Click here to add new item.\nClick on the number to edit/delete item.</string>
     <string name="maindisplay">Computer Science Helper</string>
     <string name="quick">Quick Sort</string>
+    <string name="minfo">More Information</string>
+    <string name="sminfo">More Info</string>
 </resources>
