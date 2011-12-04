@@ -252,4 +252,8 @@ public class AVLDrawView extends View {
 
 	}
 
+	public boolean isRunning() {
+		return !paused;
+	}
+
 }

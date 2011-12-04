@@ -53,20 +53,6 @@ public class DrawView extends View implements OnTouchListener {
 		invalidate();
 	}
 
-	/*
-	public void addItem() {
-		Shapes.add(new Square(Shapes.get(Shapes.size() - 1), Math.abs(rnd
-				.nextInt() % 50)));
-		this.invalidate();
-	}
-
-	public void removeItem() {
-		Shapes.remove(Shapes.size() - 1);
-		this.invalidate();
-	}
-    */
-
-	//Constructor (Context, type, size of sort)
 	public DrawView(Context context, Types stype, int size) {
 		super(context);
 		type = stype;
@@ -88,6 +74,10 @@ public class DrawView extends View implements OnTouchListener {
 				break;
 			case QuakerSort:
 				sortType = new Quaker(Shapes.size(), this);
+				sortType.setList(Shapes);
+				break;
+			case QuickSort:
+				sortType = new Quick(Shapes.size(), this);
 				sortType.setList(Shapes);
 				break;
 			}

@@ -131,6 +131,24 @@ public class HashController {
 				return list.get(1) % 10 + "";
 			else
 				return "";
+		}else if(filter.equals("CCol")){
+			if (list.size() > 0)		
+				//return hashTable.get(list.get(0) % 10).getStoredHashedValue() + "";
+				 if(hashTable.get(list.get(0) % 10).getStoredHashedValue() == -1)
+					 return "";
+				 else
+					 return "X";
+			else
+				return "";
+		} else if(filter.equals("NCol")){
+			if (list.size() > 1)
+//				return hashTable.get(list.get(1) % 10).getStoredHashedValue() + "";
+				 if(hashTable.get(list.get(1) % 10).getStoredHashedValue() == -1)
+					 return "";
+				 else
+					 return "X";
+			else
+				return "";
 		}
 		return filter;
 

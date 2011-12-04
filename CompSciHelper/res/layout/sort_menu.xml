@@ -8,7 +8,7 @@
 	<EditText android:layout_width="match_parent"
 		android:layout_height="wrap_content" android:inputType="number"
 		android:id="@+id/enterNodeNumber" android:numeric="integer"
-		android:text="4">
+		android:text="7">
 		<requestFocus></requestFocus>
 	</EditText>
 
@@ -18,4 +18,5 @@
 	<Button android:layout_width="174dp" android:text="Shaker Sort" android:id="@+id/shaker"
 		android:layout_gravity="center" android:onClick="onClick"
 		android:gravity="center|center_horizontal" android:layout_height="wrap_content"></Button>
+	<Button android:gravity="center|center_horizontal" android:onClick="onClick" android:layout_gravity="center" android:layout_height="wrap_content" android:layout_width="174dp" android:id="@+id/quick" android:text="@string/quick" android:visibility="gone"></Button>
 </LinearLayout>
