@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, CompSciHelperActivity!</string>
-    <string name="app_name">CompSciHelper</string>
+    <string name="app_name">Computer Science Helper</string>
     <string name="numberofnodes">Enter Number of Nodes</string>
     <string name="textSorts">Sorts</string>
     <string name="textTrees">Trees</string>
@@ -21,5 +20,6 @@
     <string name="avldelete">AVL Delete</string>
     <string name="btreeinsert">B-tree Insertion</string>
     <string name="addhashitem">Add Value</string>
-    <string name="hashlistheader">Long Click to add new item.\nClick the number to edit/delete item.</string>
+    <string name="hashlistheader">Click here to add new item.\nClick on the number to edit/delete item.</string>
+    <string name="maindisplay">Computer Science Helper</string>
 </resources>
