@@ -13,22 +13,27 @@ import android.widget.TextView;
 
 public class AVLDrawView extends View {
 	public final static String SIMPLE_SINGLE_ROTATION = "ssingle";
+	private final static String SIMPLE_SINGLE_ROTATION_INFO = "http://en.wikipedia.org/wiki/AVL_tree";
 	private final int SIMPLE_SINGLE_ROTATION_FRAMES = 36;
 	private final int SIMPLE_SINGLE_BREAK_POINTS[] = { 0, 31, 32, 33, 34, 35 };
 	
 	public final static String SINGLE_ROTATION = "single";
+	private final static String SINGLE_ROTATION_INFO = "http://en.wikipedia.org/wiki/AVL_tree";
 	private final int SINGLE_ROTATION_FRAMES = 46;
 	private final int SINGLE_BREAK_POINTS[] = { 0, 22, 23, 41, 42, 43, 44, 45 };
 		
 	public final static String DOUBLE_ROTATION = "double";
+	private final static String DOUBLE_ROTATION_INFO = "http://en.wikipedia.org/wiki/AVL_tree";
 	private final int DOUBLE_ROTATION_FRAMES = 88;
 	private final int DOUBLE_BREAK_POINTS[] = { 0, 1, 16, 17, 38, 39, 40, 41, 63, 64, 82, 83, 84, 85, 86, 87 };
 	
 	public final static String DELETE = "delete";
+	private final static String DELETE_INFO = "http://en.wikipedia.org/wiki/AVL_tree";
 	private final int DELETE_FRAMES = 31;
 	private final int DELETE_BREAK_POINTS[] = { 0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 16, 17, 27, 28, 29, 30 };
 	
 	public final static String BINSERT = "btreeinsert";
+	private final static String BINSERT_INFO = "http://en.wikipedia.org/wiki/B-tree";
 	private final int BINSERT_FRAMES = 90;
 	private final int BINSERT_BREAK_POINTS[] = { 0, 1, 25, 30, 31, 53, 77, 89 };
 
@@ -255,5 +260,19 @@ public class AVLDrawView extends View {
 	public boolean isRunning() {
 		return !paused;
 	}
-
+	
+	public String getMoreInformation(){
+		if(type == SINGLE_ROTATION)
+			return SINGLE_ROTATION_INFO;
+		else if(type == SIMPLE_SINGLE_ROTATION)
+			return SIMPLE_SINGLE_ROTATION_INFO;
+		else if(type == DOUBLE_ROTATION)
+			return DOUBLE_ROTATION_INFO;
+		else if(type == DELETE)
+			return DELETE_INFO;
+		else if(type == BINSERT)
+			return BINSERT_INFO;
+		else
+			return "http://google.com";
+	}
 }

@@ -3,8 +3,10 @@ package com.uco.compsci;
 import kmap.KMapController;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -100,8 +102,8 @@ public class KMapActivity extends Activity {
 					public void onCheckedChanged(CompoundButton arg0,
 							boolean arg1) {
 						KMapControl.setVariableAtLocation(arg0.getId(), arg1);
-						String s = "\nLast Selected:\n\nMinterm: " + arg0.getId() + "\n"
-								+ "State: ";
+						String s = "\nLast Selected:\n\nMinterm: "
+								+ arg0.getId() + "\n" + "State: ";
 						if (arg1 == false)
 							s += "0";
 						else
@@ -134,6 +136,11 @@ public class KMapActivity extends Activity {
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
+		case  R.id.moreinfo:
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+					Uri.parse("http://en.wikipedia.org/wiki/Karnaugh_map"));
+			startActivity(browserIntent);
+		break;
 		case R.id.var3:
 			KMapControl = new KMapController(KMapController.VARIABLE_3);
 			createLinear();
