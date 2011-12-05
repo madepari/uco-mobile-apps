@@ -25,4 +25,5 @@
     <string name="quick">Quick Sort</string>
     <string name="minfo">More Information</string>
     <string name="sminfo">More Info</string>
+    <string name="movingfowardnote">***NOTE***\nTo move forward hit the volume down.</string>
 </resources>
