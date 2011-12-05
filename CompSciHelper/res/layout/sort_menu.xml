@@ -12,11 +12,25 @@
 		<requestFocus></requestFocus>
 	</EditText>
 
-	<Button android:layout_width="174dp" android:text="Bubble Sort" android:id="@+id/bubble"
-		android:layout_gravity="center" android:onClick="onClick"
-		android:gravity="center|center_horizontal" android:layout_height="wrap_content"></Button>
-	<Button android:layout_width="174dp" android:text="Shaker Sort" android:id="@+id/shaker"
-		android:layout_gravity="center" android:onClick="onClick"
-		android:gravity="center|center_horizontal" android:layout_height="wrap_content"></Button>
-	<Button android:gravity="center|center_horizontal" android:onClick="onClick" android:layout_gravity="center" android:layout_height="wrap_content" android:layout_width="174dp" android:id="@+id/quick" android:text="@string/quick" android:visibility="gone"></Button>
+	<Button android:layout_width="174dp" android:text="Bubble Sort"
+		android:id="@+id/bubble" android:layout_gravity="center"
+		android:onClick="onClick" android:gravity="center|center_horizontal"
+		android:layout_height="wrap_content"></Button>
+	<Button android:layout_width="174dp" android:text="Shaker Sort"
+		android:id="@+id/shaker" android:layout_gravity="center"
+		android:onClick="onClick" android:gravity="center|center_horizontal"
+		android:layout_height="wrap_content"></Button>
+	<Button android:gravity="center|center_horizontal"
+		android:onClick="onClick" android:layout_gravity="center"
+		android:layout_height="wrap_content" android:layout_width="174dp"
+		android:id="@+id/quick" android:text="@string/quick"
+		android:visibility="gone"></Button>
+	<RelativeLayout android:id="@+id/relativeLayout1"
+		android:layout_width="match_parent" android:layout_height="match_parent">
+		<TextView android:layout_height="wrap_content" android:text="@string/movingfowardnote"
+			android:gravity="center_vertical|center_horizontal"
+			android:layout_width="wrap_content" android:id="@+id/textView1"
+			android:textSize="17dp" android:layout_alignParentBottom="true"
+			android:layout_marginBottom="32dp" android:layout_centerHorizontal="true"></TextView>
+	</RelativeLayout>
 </LinearLayout>
