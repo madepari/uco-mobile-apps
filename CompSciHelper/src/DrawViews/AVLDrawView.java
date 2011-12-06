@@ -34,8 +34,8 @@ public class AVLDrawView extends View {
 	
 	public final static String BINSERT = "btreeinsert";
 	private final static String BINSERT_INFO = "http://en.wikipedia.org/wiki/B-tree";
-	private final int BINSERT_FRAMES = 90;
-	private final int BINSERT_BREAK_POINTS[] = { 0, 1, 25, 30, 31, 53, 77, 89 };
+	private final int BINSERT_FRAMES = 196;
+	private final int BINSERT_BREAK_POINTS[] = { 0, 1, 25, 30, 31, 53, 77, 89, 90, 127, 128, 140, 176, 177, 178, 179, 180, 181, 195 };
 
 	private TextView displayTextView;
 	private Resources appR;
