@@ -73,7 +73,7 @@ public class DrawView extends View implements OnTouchListener {
 				sortType.setList(Shapes);
 				break;
 			case QuakerSort:
-				sortType = new Quaker(Shapes.size(), this);
+				sortType = new Shaker(Shapes.size(), this);
 				sortType.setList(Shapes);
 				break;
 			case QuickSort:

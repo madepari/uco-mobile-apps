@@ -1,9 +1,9 @@
 package hashing;
 
 public class Probing {
-	public static int LINEAR_PROBING = 1;
-	public static int QUADRATIC_PROBING = 2;
-	public static int CHAINING_PROBING = 3;
+	public static final int LINEAR_PROBING = 1;
+	public static final int QUADRATIC_PROBING = 2;
+	public static final int CHAINING_PROBING = 3;
 	
 	private int type;
 	private int max;

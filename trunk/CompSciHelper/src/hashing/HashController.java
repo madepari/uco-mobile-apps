@@ -8,7 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 public class HashController {
-	public static int NO_VALUE = -2;
+	public static final int NO_VALUE = -2;
 	ArrayList<HashBlock> hashTable = new ArrayList<HashBlock>();
 	ArrayList<Integer> list = new ArrayList<Integer>();
 
