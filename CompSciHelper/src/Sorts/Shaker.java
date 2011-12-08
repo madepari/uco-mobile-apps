@@ -6,7 +6,7 @@ import Shapes.Square;
 import android.graphics.Color;
 
 
-public class Quaker extends Sort {
+public class Shaker extends Sort {
 
 	private int spotInSort = -1;
 	private final int PIECES = 20;
@@ -14,7 +14,7 @@ public class Quaker extends Sort {
 	private int way = 1;
 	private int counter = 0;
 
-	public Quaker(int size, DrawView d) {
+	public Shaker(int size, DrawView d) {
 		super.holder = new int[size];
 		for (int x = 0; x < size - 1; x++)
 			super.holder[x] = 0;

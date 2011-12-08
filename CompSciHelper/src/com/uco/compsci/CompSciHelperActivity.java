@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 public class CompSciHelperActivity extends Activity {
 	private Intent i;
-	private Types t = new Types();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
